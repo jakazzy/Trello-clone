@@ -1,9 +1,13 @@
-Trello Clone
-Trello clone is a project to micmick how trello works for project management. It helps individuals manage their projects and by creating columns, creating cards, moving cards along columns. Editing data on cards and subsequently deleting the cards. The trello clone will also be a progressive web app.
-view project here:
-trello-clone | Project 1 | https://xxxxx.com/ | https://xxxxx.com
+# Trello Clone
 
-Suggested Features to be Implemented
+> Trello clone is a project to micmick how trello works for project management. It helps individuals manage their projects and by creating columns, creating cards, moving cards along columns. Editing data on cards and subsequently deleting the cards. The trello clone will also be a progressive web app.
+> view project here:
+> trello-clone | Project 1 | https://xxxxx.com/ | https://xxxxx.com
+
+---
+
+## Suggested Features to be Implemented
+
 Users can signup on the application
 Users can login on the application
 Users can add a column in the trello-clone
@@ -15,13 +19,15 @@ A user can log out of a board
 
 ---
 
-Others that may be added include:
+## Others that may be added include:
+
 users can be send invite to others to join the board.
 
-Proposed Technologies Used
-Reactjs - A JavaScript platform and framework for building simple apps to optimizing complex enterprise apps.
+## Proposed Technologies Used
 
-Jest - A JavaScript test framework setup to run unit and integration test for project.
+- [Reactjs](https://reactjs.org/)- A JavaScript platform and framework for building simple apps to optimizing complex enterprise apps.
+
+- [Jest](https://jestjs.io/)- A JavaScript test framework setup to run unit and integration test for project.
 
 Installation
 You need to have node and npm installed on your computer
