@@ -8,14 +8,14 @@
 
 ## Suggested Features to be Implemented
 
-Users can signup on the application
-Users can login on the application
-Users can add a column in the trello-clone
-Users can add cards in a column of a trello clone
-Users can edit a card in a trello clone
-Users can delete a card in a trello clone
-A card can be moved across columns on the trello clone
-A user can log out of a board
+- Users can signup on the application
+- Users can login on the application
+- Users can add a column in the trello-clone
+- Users can add cards in a column of a trello clone
+- Users can edit a card in a trello clone
+- Users can delete a card in a trello clone
+- A card can be moved across columns on the trello clone
+- A user can log out of a board
 
 ---
 
