@@ -29,17 +29,21 @@ users can be send invite to others to join the board.
 
 - [Jest](https://jestjs.io/)- A JavaScript test framework setup to run unit and integration test for project.
 
-Installation
+## Installation
+
 You need to have node and npm installed on your computer
 
-Clone
-Clone this repo to your local machine using git clone git@github.com:jakazzy/Trello-clone.git
+## Clone
 
-Setup
+Clone this repo using git clone git@github.com:jakazzy/Trello-clone.git
+
+## Setup
+
 Installing the project's dependencies:
-run the command below
+run the command below:
 
 \$ yarn install
+create a .nvmrc file with Node -V 10.13.0
 
 To start the server, run the command below
 
