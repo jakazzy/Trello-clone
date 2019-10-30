@@ -15,11 +15,13 @@
         "eslint-plugin-standard": "^4.0.1",
         "husky": "^3.0.9",
         "lint-staged": "^9.4.2",
+        "prettier": "^1.18.2",
         "prettier-config-standard": "^1.0.1",
         "react": "^16.11.0",
         "react-dom": "^16.11.0",
         "react-scripts": "3.2.0",
-        "snazzy": "^8.0.0"
+        "snazzy": "^8.0.0",
+        "standard": "^14.3.1"
     },
     "scripts": {
         "start": "react-scripts start",
@@ -41,7 +43,9 @@
     "eslintConfig": {
         "extends": [
             "react-app",
-            "prettier-standard"
+            "prettier-standard",
+            "plugin:prettier/recommended",
+            "prettier/react"
         ]
     },
     "browserslist": {
