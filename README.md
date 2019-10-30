@@ -35,7 +35,7 @@ You need to have node and npm installed on your computer
 
 ## Clone
 
-Clone this repo using git clone git@github.com:jakazzy/Trello-clone.git
+Clone this repo using git clone git@github.com/jakazzy/Trello-clone.git
 
 ## Setup
 
