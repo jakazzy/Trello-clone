@@ -1,11 +1,13 @@
 import React, { Component } from 'react'
-import Home from '../home/Home'
+import HomeIcon from '../icons/home/HomeIcon'
+import BoardIcon from '../icons/board/BoardIcon'
 
 export class Navbar extends Component {
   render () {
     return (
       <div>
-        <Home />
+        <HomeIcon />
+        <BoardIcon />
       </div>
     )
   }
