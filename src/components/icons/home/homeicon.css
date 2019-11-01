@@ -1,9 +1,10 @@
 .home-icon {
-    width: 32px;
-    height: 32px;
+    width: 3rem;
+    height: 2rem;
     display: inline-block;
     background-color: #5e95be;
-    border-radius: 2px
+    margin: 0.5rem 0.3rem;
+    border-radius: 0.2rem
 }
 
 img {
