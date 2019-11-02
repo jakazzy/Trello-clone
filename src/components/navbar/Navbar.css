@@ -25,8 +25,17 @@
     display: inline-block;
 }
 
-.board-icon {
+.home-icon {
+    padding-top: 0.7rem;
+}
+
+.board-icon-wrapper {
+    padding-top: 0.7rem;
     width: 6rem
+}
+
+img.board-icon {
+    display: inline
 }
 
 input[type="text"] {
