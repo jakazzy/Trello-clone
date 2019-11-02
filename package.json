@@ -24,8 +24,10 @@
         "standard": "^14.3.1"
     },
     "scripts": {
-        "start": "react-scripts start",
-        "build": "react-scripts build",
+        "build:css": "postcss src/tailwind.css -o src/index.css",
+        "watch:css": "postcss src/tailwind.css -o src/index.css -w",
+        "start": "yarn run watch:css & react-scripts start",
+        "build": "yarn run build:css && react-scripts build",
         "test": "react-scripts test",
         "eject": "react-scripts eject"
     },
@@ -61,7 +63,6 @@
         ]
     },
     "standard": {
-        "parser": "babel-eslint",
         "env": [
             "jest"
         ],
