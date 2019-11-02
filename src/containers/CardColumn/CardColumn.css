@@ -50,3 +50,29 @@
     padding: 0 1rem 1rem 1rem;
     margin: 0;
 }
+
+.card {
+    background-color: #fff;
+    border-radius: 3px;
+    box-shadow: 0 1px 0 rgba(9, 30, 66, .25);
+    cursor: pointer;
+    display: block;
+    margin-bottom: 8px;
+    max-width: 18.75rem;
+    min-height: 1.25rem;
+    position: relative;
+    text-decoration: none;
+    z-index: 0;
+    list-style-type: none;
+    padding: 6px 8px 2px;
+}
+
+.card-info {
+    clear: both;
+    display: block;
+    margin: 0 0 4px;
+    overflow: hidden;
+    text-decoration: none;
+    word-wrap: break-word;
+    color: #172b4d;
+}
