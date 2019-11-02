@@ -16,3 +16,30 @@
     border-radius: 2px;
     margin: 0.25rem
 }
+
+.list-header {
+    height: 3.6875rem;
+    line-height: 3.6875rem;
+    display: flex;
+}
+
+.list-header-text {
+    margin: 0;
+    width: 14rem;
+    font-weight: 600px;
+    font-size: 20px;
+    text-align: center;
+    /* line-height: 1.5rem; */
+    /* background: transparent;
+    border-radius: 3px;
+    box-shadow: none; */
+    font-weight: 600;
+    /* margin: -4px 0;
+    height: 20px;
+    min-height: 20px; */
+    padding: 4px 8px;
+    /* resize: none; */
+    max-height: 256px;
+    text-align: center;
+    /* vertical-align: middle; */
+}
