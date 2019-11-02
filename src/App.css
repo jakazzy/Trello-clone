@@ -1,4 +1,4 @@
-.App {
+/* .App {
     text-align: center;
 }
 
@@ -23,4 +23,10 @@
 
 body {
     background-color: #3979bf;
+} */
+
+body {
+    background-color: #3979bf;
+    margin: 0;
+    box-sizing: border-box;
 }

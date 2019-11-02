@@ -1,14 +1,15 @@
-import React from 'react'
+import React from "react";
+import "./App.css";
+// import Board from "./containers/CardColumn/CardColumn";
+import Navbar from "./components/navbar/Navbar";
 
-import './App.css'
-import Board from './containers/board/Board'
-
-function App () {
+function App() {
   return (
-    <div className='App'>
-      <Board />
+    <div className="task-board">
+      <Navbar />
+      {/* <Board /> */}
     </div>
-  )
+  );
 }
 
-export default App
+export default App;

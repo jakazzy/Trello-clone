@@ -3,3 +3,8 @@
     width: 200px;
     height: 200px
 } */
+
+.card-column-wrapper {
+    margin-top: 2rem;
+    display: flex;
+}
