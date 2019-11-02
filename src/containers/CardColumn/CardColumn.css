@@ -4,7 +4,15 @@
     height: 200px
 } */
 
-.card-column-wrapper {
+.sub-board {
     margin-top: 2rem;
     display: flex;
+}
+
+.column {
+    width: 17rem;
+    /* height: 15rem; */
+    background: #ebecf0;
+    border-radius: 2px;
+    margin: 0.25rem
 }
