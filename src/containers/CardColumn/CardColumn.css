@@ -76,3 +76,15 @@
     word-wrap: break-word;
     color: #172b4d;
 }
+
+.card-bottom {
+    color: #5e6c84;
+    /* border-radius: 3px; */
+    margin: 2px 0 0 8px;
+    padding: 4px 15px
+}
+
+.card-bottom-text {
+    width: 11rem;
+    display: inline-block;
+}
