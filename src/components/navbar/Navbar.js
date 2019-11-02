@@ -27,10 +27,22 @@ function Navbar() {
     <div className="navbar-wrapper">
       <div className="navbar">
         <div className="icon">
-          <img src={homeIcon} width="20px" heigh="20px" alt="Home" />
+          <img
+            className="home-icon"
+            src={homeIcon}
+            width="20px"
+            heigh="20px"
+            alt="Home"
+          />
         </div>
-        <div className="icon board-icon">
-          <img src={trelloIcon} width="20px" heigh="20px" alt="trello" />
+        <div className="icon board-icon-wrapper">
+          <img
+            className="board-icon"
+            src={trelloIcon}
+            width="20px"
+            heigh="20px"
+            alt="#"
+          />
           <span> Boards</span>
         </div>
         <div>
