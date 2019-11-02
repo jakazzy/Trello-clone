@@ -1,0 +1,90 @@
+/* bg-red {
+    border: 1px solid green;
+    width: 200px;
+    height: 200px
+} */
+
+.sub-board {
+    margin-top: 2rem;
+    display: flex;
+}
+
+.column {
+    width: 17rem;
+    /* height: 15rem; */
+    background: #ebecf0;
+    border-radius: 2px;
+    margin: 0.25rem
+}
+
+.list-header {
+    height: 3.6875rem;
+    line-height: 3.6875rem;
+    display: flex;
+}
+
+.list-header-text {
+    margin: 0;
+    width: 14rem;
+    font-weight: 600px;
+    font-size: 20px;
+    text-align: center;
+    /* line-height: 1.5rem; */
+    /* background: transparent;
+    border-radius: 3px;
+    box-shadow: none; */
+    font-weight: 600;
+    /* margin: -4px 0;
+    height: 20px;
+    min-height: 20px; */
+    padding: 4px 8px;
+    /* resize: none; */
+    max-height: 256px;
+    text-align: center;
+    /* vertical-align: middle; */
+}
+
+.row-cards {
+    box-sizing: border-box;
+    width: 100%;
+    padding: 0 1rem 1rem 1rem;
+    margin: 0;
+}
+
+.card {
+    background-color: #fff;
+    border-radius: 3px;
+    box-shadow: 0 1px 0 rgba(9, 30, 66, .25);
+    cursor: pointer;
+    display: block;
+    margin-bottom: 8px;
+    max-width: 18.75rem;
+    min-height: 1.25rem;
+    position: relative;
+    text-decoration: none;
+    z-index: 0;
+    list-style-type: none;
+    padding: 6px 8px 2px;
+}
+
+.card-info {
+    clear: both;
+    display: block;
+    margin: 0 0 4px;
+    overflow: hidden;
+    text-decoration: none;
+    word-wrap: break-word;
+    color: #172b4d;
+}
+
+.card-bottom {
+    color: #5e6c84;
+    /* border-radius: 3px; */
+    margin: 2px 0 0 8px;
+    padding: 4px 15px
+}
+
+.card-bottom-text {
+    width: 11rem;
+    display: inline-block;
+}
