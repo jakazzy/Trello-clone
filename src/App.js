@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import "./App.css";
 import CardColumn from "./containers/CardColumn/CardColumn";
+import { DragDropContext } from "react-beautiful-dnd";
 import Navbar from "./components/navbar/Navbar";
 
 function App() {
@@ -56,19 +57,25 @@ function App() {
       id: 5
     }
   ]);
+
+  const onDragEnd = result => {
+    // continue this
+  };
+
   return (
     <div className="task-board">
-      {console.log(columns, "this is board")}
       <Navbar />
-      <div className="sub-board">
-        {columns.map(column => (
-          <CardColumn
-            title={column.title}
-            column={column.data}
-            key={column.id}
-          />
-        ))}
-      </div>
+      <DragDropContext onDragEnd={onDragEnd}>
+        <div className="sub-board">
+          {columns.map(column => (
+            <CardColumn
+              title={column.title}
+              column={column.data}
+              key={column.id}
+            />
+          ))}
+        </div>
+      </DragDropContext>
     </div>
   );
 }
