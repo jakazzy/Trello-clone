@@ -19,8 +19,13 @@ function CardColumn({ title, column, id }) {
             ref={provided.innerRef}
           >
             <ul className="row-cards">
-              {cards.map(card => (
-                <Card card={card.card} key={card.id} />
+              {cards.map((card, index) => (
+                <Card
+                  card={card.card}
+                  key={card.id}
+                  id={card.id}
+                  index={index}
+                />
               ))}
               {provided.placeholder}
             </ul>
