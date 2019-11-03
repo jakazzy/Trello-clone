@@ -5,7 +5,7 @@ import { DragDropContext } from "react-beautiful-dnd";
 import Navbar from "./components/navbar/Navbar";
 
 function App() {
-  const [columns] = useState([
+  const [columns, setColumns] = useState([
     {
       title: "Plan",
       data: [
@@ -58,8 +58,35 @@ function App() {
     }
   ]);
 
-  const onDragEnd = result => {
-    // continue this
+  const onDragEnd = results => {
+    const { destination, source, draggableId } = results;
+    if (!destination) {
+      return;
+    }
+    if (
+      destination.droppableId === source.droppableId &&
+      destination.index === source.index
+    ) {
+      return;
+    }
+
+    const newColumn = columns[parseInt(source.droppableId) - 1];
+
+    const newData = Array.from(newColumn.data);
+    const value = newData[source.index];
+
+    newData.splice(source.index, 1);
+
+    newData.splice(destination.index, 0, value);
+
+    const changedColumn = {
+      ...newColumn,
+      data: newData
+    };
+    // console.log(changedColumn);
+
+    // console.log([Object.assign(), ...columns, changedColumn]);
+    setColumns([...columns, changedColumn]);
   };
 
   return (
