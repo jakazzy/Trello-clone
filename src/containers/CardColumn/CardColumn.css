@@ -4,11 +4,6 @@
     height: 200px
 } */
 
-.sub-board {
-    margin-top: 2rem;
-    display: flex;
-}
-
 .column {
     width: 17rem;
     /* height: 15rem; */

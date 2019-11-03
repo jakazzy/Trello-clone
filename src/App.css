@@ -30,3 +30,9 @@ body {
     margin: 0;
     box-sizing: border-box;
 }
+
+.sub-board {
+    margin-top: 2rem;
+    display: flex;
+    flex-direction: row;
+}
