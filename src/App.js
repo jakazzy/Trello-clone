@@ -4,7 +4,7 @@ import CardColumn from "./containers/CardColumn/CardColumn";
 import Navbar from "./components/navbar/Navbar";
 
 function App() {
-  const { board } = useState([
+  const [columns] = useState([
     {
       title: "Plan",
       data: [
@@ -58,8 +58,17 @@ function App() {
   ]);
   return (
     <div className="task-board">
+      {console.log(columns, "this is board")}
       <Navbar />
-      <CardColumn board={board} />
+      <div className="sub-board">
+        {columns.map(column => (
+          <CardColumn
+            title={column.title}
+            column={column.data}
+            key={column.id}
+          />
+        ))}
+      </div>
     </div>
   );
 }
