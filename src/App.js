@@ -72,6 +72,7 @@ function App() {
               title={column.title}
               column={column.data}
               key={column.id}
+              id={column.id}
             />
           ))}
         </div>

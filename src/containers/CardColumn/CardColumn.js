@@ -1,8 +1,9 @@
 import React, { useState } from "react";
 import Card from "../../components/card/Card";
 import "./CardColumn.css";
+import { Droppable } from "react-beautiful-dnd";
 
-function CardColumn({ title, column }) {
+function CardColumn({ title, column, id }) {
   const [cards] = useState(column);
   return (
     <div className="column">
@@ -10,13 +11,23 @@ function CardColumn({ title, column }) {
         <h2 className="list-header-text">{title}</h2>
         <div className="list-header-icon">...</div>
       </div>
-      <div className="column-row-cards">
-        <ul className="row-cards">
-          {cards.map(card => (
-            <Card card={card.card} key={card.id} />
-          ))}
-        </ul>
-      </div>
+      <Droppable droppableId={id.toString()}>
+        {provided => (
+          <div
+            className="column-row-cards"
+            {...provided.droppableProps}
+            ref={provided.innerRef}
+          >
+            <ul className="row-cards">
+              {cards.map(card => (
+                <Card card={card.card} key={card.id} />
+              ))}
+              {provided.placeholder}
+            </ul>
+          </div>
+        )}
+      </Droppable>
+
       <div className="card-bottom">
         <span className="card-bottom-icon">+</span>
         <span className="card-bottom-text">Add another card</span>
