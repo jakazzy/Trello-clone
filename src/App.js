@@ -59,7 +59,7 @@ function App() {
   ]);
 
   const onDragEnd = results => {
-    const { destination, source, draggableId } = results;
+    const { destination, source } = results;
     if (!destination) {
       return;
     }
@@ -83,10 +83,12 @@ function App() {
       ...newColumn,
       data: newData
     };
-    // console.log(changedColumn);
+    const newColumns = [...columns];
+    newColumns.splice(source.droppableId - 1, 1, changedColumn);
+    console.log(newColumns);
 
-    // console.log([Object.assign(), ...columns, changedColumn]);
-    setColumns([...columns, changedColumn]);
+    console.log(Object.is(newColumns, columns));
+    setColumns([...newColumns]);
   };
 
   return (
