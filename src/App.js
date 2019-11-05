@@ -9,36 +9,30 @@ function App() {
   const [columns, setColumns] = useState(data);
 
   const onDragEnd = results => {
-    const { destination, source } = results;
-    if (!destination) {
-      return;
-    }
-    if (
-      destination.droppableId === source.droppableId &&
-      destination.index === source.index
-    ) {
-      return;
-    }
-
-    const newColumn = columns[parseInt(source.droppableId) - 1];
-
-    const newData = Array.from(newColumn.data);
-    const value = newData[source.index];
-
-    newData.splice(source.index, 1);
-
-    newData.splice(destination.index, 0, value);
-
-    const changedColumn = {
-      ...newColumn,
-      data: newData
-    };
-    const newColumns = [...columns];
-    newColumns.splice(source.droppableId - 1, 1, changedColumn);
-    console.log(newColumns);
-
-    console.log(Object.is(newColumns, columns));
-    setColumns([...newColumns]);
+    // const { destination, source } = results;
+    // if (!destination) {
+    //   return;
+    // }
+    // if (
+    //   destination.droppableId === source.droppableId &&
+    //   destination.index === source.index
+    // ) {
+    //   return;
+    // }
+    // const newColumn = columns[parseInt(source.droppableId) - 1];
+    // const newData = Array.from(newColumn.data);
+    // const value = newData[source.index];
+    // newData.splice(source.index, 1);
+    // newData.splice(destination.index, 0, value);
+    // const changedColumn = {
+    //   ...newColumn,
+    //   data: newData
+    // };
+    // const newColumns = [...columns];
+    // newColumns.splice(source.droppableId - 1, 1, changedColumn);
+    // console.log(newColumns);
+    // console.log(Object.is(newColumns, columns));
+    // setColumns([...newColumns]);
   };
 
   return (

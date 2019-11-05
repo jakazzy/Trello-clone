@@ -4,6 +4,7 @@ import "./CardColumn.css";
 import { Droppable } from "react-beautiful-dnd";
 
 function CardColumn({ column, tasks }) {
+  // console.log(tasks);
   return (
     <div className="column">
       <div className="list-header">
@@ -18,8 +19,8 @@ function CardColumn({ column, tasks }) {
             ref={provided.innerRef}
           >
             <ul className="row-cards">
-              {tasks.map((card, index) => (
-                <Card card={card.content} key={card.id} index={index} />
+              {tasks.map((task, index) => (
+                <Card task={task} key={task.id} index={index} />
               ))}
               {provided.placeholder}
             </ul>
