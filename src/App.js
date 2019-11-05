@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import "./App.css";
 import CardColumn from "./containers/CardColumn/CardColumn";
-import { DragDropContext } from "react-beautiful-dnd";
+import { DragDropContext, Droppable } from "react-beautiful-dnd";
 import Navbar from "./components/navbar/Navbar";
 import data from "./data";
 
@@ -9,7 +9,7 @@ function App() {
   const [columns, setColumns] = useState(data);
 
   const onDragEnd = results => {
-    const { destination, source, draggableId } = results;
+    const { destination, source, draggableId, type } = results;
     if (!destination) {
       return;
     }
@@ -19,6 +19,20 @@ function App() {
     ) {
       return;
     }
+
+    if (type === "column") {
+      const newColumnOrder = Array.from(columns.columnOrder);
+      newColumnOrder.splice(source.index, 1);
+      newColumnOrder.splice(destination.index, 0, draggableId);
+
+      const newState = {
+        ...columns,
+        columnOrder: newColumnOrder
+      };
+      setColumns(newState);
+      return;
+    }
+
     const start = columns.columnsData[source.droppableId];
     const finish = columns.columnsData[destination.droppableId];
 
@@ -74,13 +88,35 @@ function App() {
     <div className="task-board">
       <Navbar />
       <DragDropContext onDragEnd={onDragEnd}>
-        <div className="sub-board">
-          {columns.columnOrder.map(columnValue => {
-            const column = columns.columnsData[columnValue];
-            const tasks = column.taskIds.map(taskId => columns.tasks[taskId]);
-            return <CardColumn column={column} key={column.id} tasks={tasks} />;
-          })}
-        </div>
+        <Droppable
+          droppableId="all-columns"
+          direction="horizontal"
+          type="column"
+        >
+          {provided => (
+            <div
+              className="sub-board"
+              {...provided.droppableProps}
+              ref={provided.innerRef}
+            >
+              {columns.columnOrder.map((columnValue, index) => {
+                const column = columns.columnsData[columnValue];
+                const tasks = column.taskIds.map(
+                  taskId => columns.tasks[taskId]
+                );
+                return (
+                  <CardColumn
+                    column={column}
+                    key={column.id}
+                    tasks={tasks}
+                    index={index}
+                  />
+                );
+              })}
+              {provided.placeholder}
+            </div>
+          )}
+        </Droppable>
       </DragDropContext>
     </div>
   );
