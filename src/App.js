@@ -47,10 +47,7 @@ function App() {
         <div className="sub-board">
           {columns.columnOrder.map(columnValue => {
             const column = columns.columnsData[columnValue];
-            // console.log(column, "this is column");
-            // const tasks = column.taskIds;
             const tasks = column.taskIds.map(taskId => columns.tasks[taskId]);
-            // console.log(tasks, "this is tasks");
             return <CardColumn column={column} key={column.id} tasks={tasks} />;
           })}
         </div>
