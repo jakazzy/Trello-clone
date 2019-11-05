@@ -2,7 +2,6 @@ import React from "react";
 import { Draggable } from "react-beautiful-dnd";
 
 function Card({ task, index }) {
-  console.log(task.id, "thisis task id");
   return (
     <Draggable draggableId={task.id} index={index}>
       {provided => (
