@@ -3,60 +3,10 @@ import "./App.css";
 import CardColumn from "./containers/CardColumn/CardColumn";
 import { DragDropContext } from "react-beautiful-dnd";
 import Navbar from "./components/navbar/Navbar";
+import data from "./data";
 
 function App() {
-  const [columns, setColumns] = useState([
-    {
-      title: "Plan",
-      data: [
-        { card: "bake cake", id: 6 },
-        { card: "wash utensils", id: 7 },
-        { card: "Read book", id: 8 },
-        { card: "complete proofread", id: 9 }
-      ],
-      id: 1
-    },
-    {
-      title: "to do",
-      data: [
-        { card: "water plants", id: 10 },
-        { card: "iron dresses", id: 11 },
-        { card: "Help friends", id: 12 },
-        { card: "braid hair", id: 13 }
-      ],
-      id: 2
-    },
-    {
-      title: "doing",
-      data: [
-        { card: "comb hair", id: 14 },
-        { card: "buy prepaid", id: 15 },
-        { card: "sweep room", id: 16 },
-        { card: "fetch water", id: 17 }
-      ],
-      id: 3
-    },
-    {
-      title: "Done",
-      data: [
-        { card: "watch soccer", id: 18 },
-        { card: "repair meter", id: 19 },
-        { card: "clean room", id: 20 },
-        { card: "wash car", id: 21 }
-      ],
-      id: 4
-    },
-    {
-      title: "logs",
-      data: [
-        { card: "mob rooms", id: 22 },
-        { card: "close window", id: 23 },
-        { card: "run errands", id: 24 },
-        { card: "water plants", id: 25 }
-      ],
-      id: 5
-    }
-  ]);
+  const [columns, setColumns] = useState(data);
 
   const onDragEnd = results => {
     const { destination, source } = results;
@@ -96,14 +46,14 @@ function App() {
       <Navbar />
       <DragDropContext onDragEnd={onDragEnd}>
         <div className="sub-board">
-          {columns.map(column => (
-            <CardColumn
-              title={column.title}
-              column={column.data}
-              key={column.id}
-              id={column.id}
-            />
-          ))}
+          {columns.columnOrder.map(columnValue => {
+            const column = columns.columnsData[columnValue];
+            // console.log(column, "this is column");
+            // const tasks = column.taskIds;
+            const tasks = column.taskIds.map(taskId => columns.tasks[taskId]);
+            // console.log(tasks, "this is tasks");
+            return <CardColumn column={column} key={column.id} tasks={tasks} />;
+          })}
         </div>
       </DragDropContext>
     </div>
