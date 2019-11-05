@@ -1,17 +1,17 @@
-import React, { useState } from "react";
+import React from "react";
 import Card from "../../components/card/Card";
 import "./CardColumn.css";
 import { Droppable } from "react-beautiful-dnd";
 
-function CardColumn({ title, column, id }) {
-  const [cards] = useState(column);
+function CardColumn({ column, tasks }) {
+  // console.log(tasks);
   return (
     <div className="column">
       <div className="list-header">
-        <h2 className="list-header-text">{title}</h2>
+        <h2 className="list-header-text">{column.title}</h2>
         <div className="list-header-icon">...</div>
       </div>
-      <Droppable droppableId={id.toString()}>
+      <Droppable droppableId={column.id}>
         {provided => (
           <div
             className="column-row-cards"
@@ -19,13 +19,8 @@ function CardColumn({ title, column, id }) {
             ref={provided.innerRef}
           >
             <ul className="row-cards">
-              {cards.map((card, index) => (
-                <Card
-                  card={card.card}
-                  key={card.id}
-                  id={card.id}
-                  index={index}
-                />
+              {tasks.map((task, index) => (
+                <Card task={task} key={task.id} index={index} />
               ))}
               {provided.placeholder}
             </ul>

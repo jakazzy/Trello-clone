@@ -1,9 +1,9 @@
 import React from "react";
 import { Draggable } from "react-beautiful-dnd";
 
-function Card({ card, id, index }) {
+function Card({ task, index }) {
   return (
-    <Draggable draggableId={id.toString()} index={index}>
+    <Draggable draggableId={task.id} index={index}>
       {provided => (
         <div
           {...provided.draggableProps}
@@ -11,7 +11,7 @@ function Card({ card, id, index }) {
           ref={provided.innerRef}
         >
           <li className="card">
-            <span className="card-info">{card}</span>
+            <span className="card-info">{task.content}</span>
           </li>
         </div>
       )}
