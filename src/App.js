@@ -19,25 +19,55 @@ function App() {
     ) {
       return;
     }
-    const column = columns.columnsData[source.droppableId];
+    const start = columns.columnsData[source.droppableId];
+    const finish = columns.columnsData[destination.droppableId];
 
-    const newTaskIds = Array.from(column.taskIds);
-    console.log(column);
-    newTaskIds.splice(source.index, 1);
-    newTaskIds.splice(destination.index, 0, draggableId);
-    const newColumn = {
-      ...column,
-      taskIds: newTaskIds
+    if (start === finish) {
+      const newTaskIds = Array.from(start.taskIds);
+
+      newTaskIds.splice(source.index, 1);
+      newTaskIds.splice(destination.index, 0, draggableId);
+      const newColumn = {
+        ...start,
+        taskIds: newTaskIds
+      };
+      const newData = {
+        ...columns,
+
+        columnsData: {
+          ...columns.columnsData,
+          [newColumn.id]: newColumn
+        }
+      };
+      setColumns(newData);
+      return;
+    }
+
+    const startTaskIds = Array.from(start.taskIds);
+    startTaskIds.splice(source.index, 1);
+    const newStart = {
+      ...start,
+      taskIds: startTaskIds
     };
-    const newData = {
-      ...columns,
 
+    const finishTaskIds = Array.from(finish.taskIds);
+    finishTaskIds.splice(destination.index, 0, draggableId);
+
+    const newFinish = {
+      ...finish,
+      taskIds: finishTaskIds
+    };
+
+    const newState = {
+      ...columns,
       columnsData: {
         ...columns.columnsData,
-        [newColumn.id]: newColumn
+        [newStart.id]: newStart,
+        [newFinish.id]: newFinish
       }
     };
-    setColumns(newData);
+    setColumns(newState);
+    return;
   };
 
   return (

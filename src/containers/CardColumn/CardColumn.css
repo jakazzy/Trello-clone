@@ -9,7 +9,10 @@
     /* height: 15rem; */
     background: #ebecf0;
     border-radius: 2px;
-    margin: 0.25rem
+    margin: 0.25rem;
+    /* checking */
+    display: flex;
+    flex-direction: column;
 }
 
 .list-header {
@@ -60,6 +63,7 @@
     z-index: 0;
     list-style-type: none;
     padding: 6px 8px 2px;
+    flex-grow: 1;
 }
 
 .card-info {
