@@ -4,7 +4,6 @@ import { Draggable } from "react-beautiful-dnd";
 function Card({ task, index }) {
   const value = task.content || <textarea rows="1" cols="20"></textarea>;
   console.log(task);
-  // const value = "great";
   return (
     <Draggable draggableId={task.id} index={index}>
       {provided => (
