@@ -19,7 +19,7 @@ const data = {
     card17: { id: "card17", content: "mob rooms" },
     card18: { id: "card18", content: "close window" },
     card19: { id: "card19", content: "run errands" },
-    card20: { id: "20", content: "water plants" }
+    card20: { id: "card20", content: "water plants" }
   },
   columnsData: {
     column1: {

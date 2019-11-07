@@ -2,9 +2,14 @@ import React from "react";
 import Card from "../../components/card/Card";
 import "./CardColumn.css";
 import { Draggable, Droppable } from "react-beautiful-dnd";
+import uuidv4 from "uuid/v4";
 
-function CardColumn({ column, tasks, index }) {
-  // console.log(tasks);
+function CardColumn({ column, tasks, index, addCard }) {
+  const handleclick = id => {
+    const cardid = uuidv4();
+    const card = { id: `card${cardid}`, content: "" };
+    addCard(`card${cardid}`, card, id);
+  };
   return (
     <Draggable draggableId={column.id} index={index}>
       {provided => (
@@ -37,7 +42,12 @@ function CardColumn({ column, tasks, index }) {
 
           <div className="card-bottom">
             <span className="card-bottom-icon">+</span>
-            <span className="card-bottom-text">Add another card</span>
+            <span
+              className="card-bottom-text"
+              onClick={() => handleclick(column.id)}
+            >
+              Add another card
+            </span>
           </div>
         </div>
       )}
