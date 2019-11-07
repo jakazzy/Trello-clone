@@ -2,6 +2,9 @@ import React from "react";
 import { Draggable } from "react-beautiful-dnd";
 
 function Card({ task, index }) {
+  const value = task.content || <textarea rows="1" cols="20"></textarea>;
+  console.log(task);
+  // const value = "great";
   return (
     <Draggable draggableId={task.id} index={index}>
       {provided => (
@@ -11,7 +14,7 @@ function Card({ task, index }) {
           ref={provided.innerRef}
         >
           <li className="card">
-            <span className="card-info">{task.content}</span>
+            <span className="card-info">{value}</span>
           </li>
         </div>
       )}

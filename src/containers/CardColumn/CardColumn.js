@@ -7,7 +7,10 @@ import uuidv4 from "uuid/v4";
 function CardColumn({ column, tasks, index, addCard }) {
   const handleclick = id => {
     const cardid = uuidv4();
-    const card = { id: `card${cardid}`, content: "" };
+    const card = {
+      id: `card${cardid}`,
+      content: ""
+    };
     addCard(`card${cardid}`, card, id);
   };
   return (
