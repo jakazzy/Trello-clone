@@ -106,3 +106,10 @@ textarea:focus {
 textarea::placeholder {
     color: #5e6c84
 }
+
+.new-card button[type="submit"] {
+    background-color: #5aac44;
+    box-shadow: none;
+    border: none;
+    color: #fff;
+}

@@ -7,7 +7,7 @@ function Card({ task, index }) {
       <span className="card-info">{task.content}</span>
     </li>
   ) : (
-    <div>
+    <div className="new-card">
       <li className="card">
         <span className="card-info">
           <textarea
@@ -18,7 +18,7 @@ function Card({ task, index }) {
           ></textarea>
         </span>
       </li>
-      <button>Add Card</button>
+      <button type="submit">Add Card</button>
     </div>
   );
 
