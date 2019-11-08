@@ -1,30 +1,15 @@
 import React from "react";
 import { Draggable } from "react-beautiful-dnd";
+import { getCard } from "../../lib/utils";
 
-function Card({ task, index }) {
+function Card({ task, index, removeCard, column }) {
   const handleBlur = value => {
-    value.focus = false;
+    // value.focus = false;
+    // console.log(value);
+    removeCard(value, column.id);
+    return value;
   };
-  const value = task.content ? (
-    <li className="card">
-      <span className="card-info">{task.content}</span>
-    </li>
-  ) : (
-    <div className="new-card">
-      <li className="card">
-        onBlur={() => handleBlur(task)}
-        <span className="card-info">
-          <textarea
-            rows="1"
-            cols="23"
-            autoFocus
-            placeholder="Enter a title for this card..."
-          ></textarea>
-        </span>
-      </li>
-      <button type="submit">Add Card</button>
-    </div>
-  );
+  const value = getCard(task, handleBlur);
 
   return (
     <Draggable draggableId={task.id} index={index}>
