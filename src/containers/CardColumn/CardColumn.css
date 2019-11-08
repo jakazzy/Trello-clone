@@ -108,16 +108,16 @@ textarea::placeholder {
 }
 
 .new-card button[type="submit"] {
-    background-color: #5aac44;
-    box-shadow: none;
-    border: none;
-    color: #fff;
-    cursor: pointer;
     display: inline-block;
     font-weight: 400;
     line-height: 20px;
     margin: 8px 4px 0 0;
     padding: 6px 12px;
+    background-color: #5aac44;
+    box-shadow: none;
+    border: none;
+    color: #fff;
+    cursor: pointer;
     text-align: center;
     border-radius: 2px;
 }
