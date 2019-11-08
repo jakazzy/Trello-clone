@@ -87,3 +87,22 @@
     width: 11rem;
     display: inline-block;
 }
+
+
+/* textarea:focus {
+    border: none;
+    box-shadow: none;
+} */
+
+textarea:focus {
+    outline: none;
+}
+
+.card-info textarea {
+    resize: none;
+    color: #172b4d;
+}
+
+textarea::placeholder {
+    color: #5e6c84
+}

@@ -2,7 +2,14 @@ import React from "react";
 import { Draggable } from "react-beautiful-dnd";
 
 function Card({ task, index }) {
-  const value = task.content || <textarea rows="1" cols="20"></textarea>;
+  const value = task.content || (
+    <textarea
+      rows="1"
+      cols="23"
+      autoFocus
+      placeholder="Enter a title for this card..."
+    ></textarea>
+  );
   console.log(task);
   return (
     <Draggable draggableId={task.id} index={index}>
