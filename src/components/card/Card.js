@@ -7,18 +7,21 @@ function Card({ task, index }) {
       <span className="card-info">{task.content}</span>
     </li>
   ) : (
-    <li className="card">
-      <span className="card-info">
-        <textarea
-          rows="1"
-          cols="23"
-          autoFocus
-          placeholder="Enter a title for this card..."
-        ></textarea>
-      </span>
-    </li>
+    <div>
+      <li className="card">
+        <span className="card-info">
+          <textarea
+            rows="1"
+            cols="23"
+            autoFocus
+            placeholder="Enter a title for this card..."
+          ></textarea>
+        </span>
+      </li>
+      <button>Add Card</button>
+    </div>
   );
-  // console.log(task);
+
   return (
     <Draggable draggableId={task.id} index={index}>
       {provided => (
