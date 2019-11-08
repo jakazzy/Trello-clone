@@ -2,6 +2,9 @@ import React from "react";
 import { Draggable } from "react-beautiful-dnd";
 
 function Card({ task, index }) {
+  const handleBlur = value => {
+    value.focus = false;
+  };
   const value = task.content ? (
     <li className="card">
       <span className="card-info">{task.content}</span>
@@ -9,6 +12,7 @@ function Card({ task, index }) {
   ) : (
     <div className="new-card">
       <li className="card">
+        onBlur={() => handleBlur(task)}
         <span className="card-info">
           <textarea
             rows="1"

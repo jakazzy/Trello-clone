@@ -9,7 +9,8 @@ function CardColumn({ column, tasks, index, addCard }) {
     const cardid = uuidv4();
     const card = {
       id: `card${cardid}`,
-      content: ""
+      content: "",
+      focus: true
     };
     addCard(`card${cardid}`, card, id);
   };
