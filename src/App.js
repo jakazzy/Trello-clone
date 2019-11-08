@@ -8,6 +8,15 @@ import data from "./data";
 function App() {
   const [columns, setColumns] = useState(data);
 
+  const addCard = (name, card, id) => {
+    console.log(id);
+    const newColumns = columns;
+    newColumns.tasks[name] = card;
+    newColumns.columnsData[id].taskIds.push(name);
+    console.log(newColumns.columnsData[id]);
+    setColumns({ ...newColumns });
+  };
+
   const onDragEnd = results => {
     const { destination, source, draggableId, type } = results;
     if (!destination) {
@@ -110,6 +119,7 @@ function App() {
                     key={column.id}
                     tasks={tasks}
                     index={index}
+                    addCard={addCard}
                   />
                 );
               })}
