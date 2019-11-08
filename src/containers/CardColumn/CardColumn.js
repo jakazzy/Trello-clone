@@ -4,15 +4,17 @@ import "./CardColumn.css";
 import { Draggable, Droppable } from "react-beautiful-dnd";
 import uuidv4 from "uuid/v4";
 
-function CardColumn({ column, tasks, index, addCard }) {
+function CardColumn({ column, tasks, index, addCard, removeCard }) {
   const handleclick = id => {
     const cardid = uuidv4();
     const card = {
       id: `card${cardid}`,
-      content: ""
+      content: "",
+      focus: true
     };
     addCard(`card${cardid}`, card, id);
   };
+
   return (
     <Draggable draggableId={column.id} index={index}>
       {provided => (
@@ -35,7 +37,13 @@ function CardColumn({ column, tasks, index, addCard }) {
               >
                 <ul className="row-cards">
                   {tasks.map((task, index) => (
-                    <Card task={task} key={task.id} index={index} />
+                    <Card
+                      task={task}
+                      key={task.id}
+                      index={index}
+                      removeCard={removeCard}
+                      column={column}
+                    />
                   ))}
                   {provided.placeholder}
                 </ul>

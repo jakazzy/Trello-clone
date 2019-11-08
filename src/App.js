@@ -9,12 +9,22 @@ function App() {
   const [columns, setColumns] = useState(data);
 
   const addCard = (name, card, id) => {
-    console.log(id);
     const newColumns = columns;
     newColumns.tasks[name] = card;
     newColumns.columnsData[id].taskIds.push(name);
-    console.log(newColumns.columnsData[id]);
     setColumns({ ...newColumns });
+  };
+
+  const removeCard = (card, id) => {
+    const newColumns = columns;
+    // delete newColumns.tasks.card.id;
+    // newColumns.splice(card.id, 1);
+    const value = card.id;
+    console.log(value);
+    // console.log(newColumns.tasks.value);
+    console.log(newColumns);
+    console.log(id);
+    console.log(card.id);
   };
 
   const onDragEnd = results => {
@@ -120,6 +130,7 @@ function App() {
                     tasks={tasks}
                     index={index}
                     addCard={addCard}
+                    removeCard={removeCard}
                   />
                 );
               })}
