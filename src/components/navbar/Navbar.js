@@ -1,23 +1,3 @@
-// import React, { Component } from "react";
-// import HomeIcon from "../icons/home/HomeIcon";
-// import BoardIcon from "../icons/board/BoardIcon";
-// import Input from "../input/Input";
-// import "./Navbar.css";
-
-// export className Navbar extends Component {
-//   render() {
-//     return (
-//       <div className="navbar">
-//         <HomeIcon />
-//         <BoardIcon />
-//         <Input />
-//       </div>
-//     );
-//   }
-// }
-
-// export default Navbar;
-
 import React from "react";
 import "./Navbar.css";
 import trelloIcon from "../../images/trelloIcon.svg";
