@@ -17,13 +17,11 @@ function App() {
 
   const removeCard = (card, columnId) => {
     const newColumns = columns;
-    // newColumns.splice(card.id, 1);
     const { id } = card;
-    console.log(id);
-    // console.log(newColumns.tasks.value);
-    console.log(newColumns.tasks[`${id}`]);
-    console.log(columnId);
-    newColumns.columnsData[`${columnId}`].taskIds.splice(card.id, 1);
+    console.log(newColumns.columnsData[`${columnId}`].taskIds);
+    delete newColumns.tasks[`${id}`];
+    newColumns.columnsData[`${columnId}`].taskIds.pop();
+
     setColumns({ ...newColumns });
   };
 

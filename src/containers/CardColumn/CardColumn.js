@@ -10,7 +10,8 @@ function CardColumn({ column, tasks, index, addCard, removeCard }) {
     const card = {
       id: `card${cardid}`,
       content: "",
-      focus: true
+      focus: true,
+      button: "Add Card"
     };
     addCard(`card${cardid}`, card, id);
   };
