@@ -9,8 +9,8 @@ export const getCard = (value, handleEvent) => {
     );
   } else if (!value.content && value.focus) {
     return (
-      <div className="new-card">
-        <li className="card" onBlur={() => handleEvent(value)}>
+      <div className="new-card" onBlur={() => handleEvent(value)}>
+        <li className="card">
           <span className="card-info">
             <textarea
               rows="1"
@@ -20,7 +20,7 @@ export const getCard = (value, handleEvent) => {
             ></textarea>
           </span>
         </li>
-        <button type="submit">Add Card</button>
+        <button type="submit">{value.button}</button>
       </div>
     );
   } else if (!value.content && !value.focus) {

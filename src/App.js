@@ -15,16 +15,12 @@ function App() {
     setColumns({ ...newColumns });
   };
 
-  const removeCard = (card, id) => {
+  const removeCard = (card, columnId) => {
     const newColumns = columns;
-    // delete newColumns.tasks.card.id;
-    // newColumns.splice(card.id, 1);
-    const value = card.id;
-    console.log(value);
-    // console.log(newColumns.tasks.value);
-    console.log(newColumns);
-    console.log(id);
-    console.log(card.id);
+    const { id } = card;
+    delete newColumns.tasks[`${id}`];
+    newColumns.columnsData[`${columnId}`].taskIds.pop();
+    setColumns({ ...newColumns });
   };
 
   const onDragEnd = results => {
