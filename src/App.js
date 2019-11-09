@@ -8,7 +8,7 @@ import data from "./data";
 function App() {
   const [columns, setColumns] = useState(data);
 
-  const addCard = (name, card, id) => {
+  const createCard = (name, card, id) => {
     const newColumns = columns;
     newColumns.tasks[name] = card;
     newColumns.columnsData[id].taskIds.push(name);
@@ -125,7 +125,7 @@ function App() {
                     key={column.id}
                     tasks={tasks}
                     index={index}
-                    addCard={addCard}
+                    createCard={createCard}
                     removeCard={removeCard}
                   />
                 );
