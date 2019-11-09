@@ -4,8 +4,6 @@ import { getCard } from "../../lib/utils";
 
 function Card({ task, index, removeCard, column }) {
   const handleBlur = value => {
-    // value.focus = false;
-    // console.log(value);
     removeCard(value, column.id);
     return value;
   };

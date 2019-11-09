@@ -8,6 +8,10 @@ import data from "./data";
 function App() {
   const [columns, setColumns] = useState(data);
 
+  const addCard = card => {
+    console.log(card);
+  };
+
   const createCard = (name, card, id) => {
     const newColumns = columns;
     newColumns.tasks[name] = card;
