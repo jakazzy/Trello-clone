@@ -8,8 +8,8 @@ import data from "./data";
 function App() {
   const [columns, setColumns] = useState(data);
 
-  const addCard = card => {
-    console.log(card);
+  const addCard = (card, columnid) => {
+    console.log(card, columnid);
   };
 
   const createCard = (name, card, id) => {
@@ -131,6 +131,7 @@ function App() {
                     index={index}
                     createCard={createCard}
                     removeCard={removeCard}
+                    addCard={addCard}
                   />
                 );
               })}

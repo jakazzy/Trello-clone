@@ -1,6 +1,12 @@
 import React from "react";
 
-export const getCard = (value, handleEvent) => {
+export const getCard = (
+  value,
+  handleEvent,
+  handleChange,
+  values,
+  handleSubmit
+) => {
   if (value.content) {
     return (
       <li className="card">
@@ -9,7 +15,11 @@ export const getCard = (value, handleEvent) => {
     );
   } else if (!value.content && value.focus) {
     return (
-      <div className="new-card" onBlur={() => handleEvent(value)}>
+      <form
+        className="new-card"
+        onBlur={() => handleEvent(value)}
+        onSubmit={handleSubmit}
+      >
         <li className="card">
           <span className="card-info">
             <textarea
@@ -17,11 +27,13 @@ export const getCard = (value, handleEvent) => {
               cols="23"
               autoFocus
               placeholder="Enter a title for this card..."
+              value={values.content}
+              onChange={handleChange}
             ></textarea>
           </span>
         </li>
         <button type="submit">{value.button}</button>
-      </div>
+      </form>
     );
   } else if (!value.content && !value.focus) {
     return null;
