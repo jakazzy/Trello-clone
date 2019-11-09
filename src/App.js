@@ -4,12 +4,21 @@ import CardColumn from "./containers/CardColumn/CardColumn";
 import { DragDropContext, Droppable } from "react-beautiful-dnd";
 import Navbar from "./components/navbar/Navbar";
 import data from "./data";
+import uuidv4 from "uuid/v4";
 
 function App() {
   const [columns, setColumns] = useState(data);
 
   const addCard = (card, columnid) => {
-    console.log("heyo");
+    const cardid = uuidv4();
+    const newColumns = columns;
+    if (!card.id) {
+      card.id = `card${cardid}`;
+    }
+    newColumns.tasks[`card${cardid}`] = card;
+    newColumns.columnsData[columnid].taskIds.push(`card${cardid}`);
+    console.log(newColumns);
+    setColumns({ ...newColumns });
   };
 
   const createCard = (name, card, id) => {

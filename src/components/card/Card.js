@@ -16,7 +16,7 @@ function Card({ task, index, removeCard, column, addCard }) {
     if (e.keyCode === 13 && e.shiftKey === false) {
       e.preventDefault();
       console.log("this works");
-      addCard(values);
+      addCard(values, column.id);
       setValues(values);
     }
   };
