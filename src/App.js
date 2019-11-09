@@ -18,10 +18,8 @@ function App() {
   const removeCard = (card, columnId) => {
     const newColumns = columns;
     const { id } = card;
-    console.log(newColumns.columnsData[`${columnId}`].taskIds);
     delete newColumns.tasks[`${id}`];
     newColumns.columnsData[`${columnId}`].taskIds.pop();
-
     setColumns({ ...newColumns });
   };
 
