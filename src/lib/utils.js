@@ -17,8 +17,9 @@ export const getCard = (
     return (
       <form
         className="new-card"
+        id="content-form"
         onBlur={() => handleEvent(value)}
-        onSubmit={handleSubmit}
+        onKeyDown={handleSubmit}
       >
         <li className="card">
           <span className="card-info">
@@ -26,9 +27,12 @@ export const getCard = (
               rows="1"
               cols="23"
               autoFocus
+              id="card-input"
               placeholder="Enter a title for this card..."
               value={values.content}
               onChange={handleChange}
+              name="content-text"
+              form="content-form"
             ></textarea>
           </span>
         </li>

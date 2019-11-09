@@ -12,14 +12,18 @@ function Card({ task, index, removeCard, column, addCard }) {
     return value;
   };
 
-  const handleSubmit = () => {
-    console.log("this works");
+  const handleSubmit = e => {
+    if (e.keyCode === 13 && e.shiftKey === false) {
+      e.preventDefault();
+      console.log("this works");
+      addCard(values);
+      setValues(values);
+    }
   };
 
   const handleChange = event => {
     event.persist();
-    setValues(values => ({ ...values, [event.target.id]: event.target.value }));
-    console.log("this has been triggered");
+    setValues(values => ({ ...values, content: event.target.value }));
     // addCard(value, column.id);
     // return value;
   };

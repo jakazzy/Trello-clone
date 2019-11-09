@@ -9,7 +9,7 @@ function App() {
   const [columns, setColumns] = useState(data);
 
   const addCard = (card, columnid) => {
-    console.log(card, columnid);
+    console.log("heyo");
   };
 
   const createCard = (name, card, id) => {
