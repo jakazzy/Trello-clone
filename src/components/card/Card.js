@@ -15,18 +15,19 @@ function Card({ task, index, removeCard, column, addCard }) {
   const handleSubmit = e => {
     if (e.keyCode === 13 && e.shiftKey === false) {
       e.preventDefault();
-      console.log("this works");
       addCard(values, column.id);
-      setValues(values);
+      setValues({ content: "" });
     }
   };
 
-  const handleChange = event => {
+  const handleChange = (event, card) => {
     event.persist();
-    setValues(values => ({ ...values, content: event.target.value }));
-    // addCard(value, column.id);
-    // return value;
+    setValues({ ...values, ...card, content: event.target.value });
   };
+
+  // useEffect(() => {
+  //   addCard(values);
+  // });
   const value = getCard(task, handleBlur, handleChange, values, handleSubmit);
 
   return (
@@ -43,5 +44,4 @@ function Card({ task, index, removeCard, column, addCard }) {
     </Draggable>
   );
 }
-
 export default Card;
