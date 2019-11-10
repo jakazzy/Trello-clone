@@ -33,7 +33,7 @@
         "eject": "react-scripts eject"
     },
     "lint-staged": {
-        "src/**.{js,jsx}": [
+        "src/*.{js,jsx}": [
             "standard --fix | snazzy",
             "git add"
         ]
