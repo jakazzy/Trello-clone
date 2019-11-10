@@ -4,21 +4,37 @@ import CardColumn from "./containers/CardColumn/CardColumn";
 import { DragDropContext, Droppable } from "react-beautiful-dnd";
 import Navbar from "./components/navbar/Navbar";
 import data from "./data";
-import uuidv4 from "uuid/v4";
+// import uuidv4 from "uuid/v4";
 
 function App() {
   const [columns, setColumns] = useState(data);
 
   const addCard = (card, columnid) => {
-    const cardid = uuidv4();
-    const newColumns = columns;
-    if (!card.id) {
-      card.id = `card${cardid}`;
-    }
-    newColumns.tasks[`card${cardid}`] = card;
-    newColumns.columnsData[columnid].taskIds.push(`card${cardid}`);
-    console.log(newColumns);
+    // const cardid = uuidv4();
+    delete card.button;
+    delete card.focus;
+    const { id } = card;
+    const newColumns = {
+      ...columns,
+      tasks: { ...columns.tasks, [id]: card }
+    };
+
+    // if (!card.id) {
+    //   card.id = `card${cardid}`;
+    // }
+
     setColumns({ ...newColumns });
+
+    // { [id]: { content: [content], id: [id] } };
+
+    // console.log(card);
+    // setColumns();
+
+    // { ...newColumns.tasks, card }
+    // newColumns.tasks[`card${cardid}`] = card;
+    // newColumns.columnsData[columnid].taskIds.push(`card${cardid}`);
+    // console.log(newColumns);
+    // setColumns({ ...newColumns });
   };
 
   const createCard = (name, card, id) => {
@@ -32,8 +48,8 @@ function App() {
     const newColumns = columns;
     const { id } = card;
     delete newColumns.tasks[`${id}`];
-    newColumns.columnsData[`${columnId}`].taskIds.pop();
-    setColumns({ ...newColumns });
+    // newColumns.columnsData[`${columnId}`].taskIds.pop();
+    // setColumns({ ...newColumns });
   };
 
   const onDragEnd = results => {

@@ -30,7 +30,7 @@ export const getCard = (
               id="card-input"
               placeholder="Enter a title for this card..."
               value={values.content}
-              onChange={handleChange}
+              onChange={event => handleChange(event, value)}
               name="content-text"
               form="content-form"
             ></textarea>
