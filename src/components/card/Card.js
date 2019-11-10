@@ -25,9 +25,6 @@ function Card({ task, index, removeCard, column, editCard }) {
     setValues({ ...values, ...card, content: event.target.value });
   };
 
-  // useEffect(() => {
-  //   addCard(values);
-  // });
   const value = getCard(task, handleBlur, handleChange, values, handleSubmit);
 
   return (
