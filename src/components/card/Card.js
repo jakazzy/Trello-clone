@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import { Draggable } from "react-beautiful-dnd";
 import { getCard } from "../../lib/utils";
 
-function Card({ task, index, removeCard, column, addCard }) {
+function Card({ task, index, removeCard, column, editCard }) {
   const [values, setValues] = useState({
     content: ""
   });
@@ -15,7 +15,7 @@ function Card({ task, index, removeCard, column, addCard }) {
   const handleSubmit = e => {
     if (e.keyCode === 13 && e.shiftKey === false) {
       e.preventDefault();
-      addCard(values, column.id);
+      editCard(values, column.id);
       setValues({ content: "" });
     }
   };
@@ -25,9 +25,6 @@ function Card({ task, index, removeCard, column, addCard }) {
     setValues({ ...values, ...card, content: event.target.value });
   };
 
-  // useEffect(() => {
-  //   addCard(values);
-  // });
   const value = getCard(task, handleBlur, handleChange, values, handleSubmit);
 
   return (

@@ -4,13 +4,11 @@ import CardColumn from "./containers/CardColumn/CardColumn";
 import { DragDropContext, Droppable } from "react-beautiful-dnd";
 import Navbar from "./components/navbar/Navbar";
 import data from "./data";
-// import uuidv4 from "uuid/v4";
 
 function App() {
   const [columns, setColumns] = useState(data);
 
-  const addCard = (card, columnid) => {
-    // const cardid = uuidv4();
+  const editCard = card => {
     delete card.button;
     delete card.focus;
     const { id } = card;
@@ -140,7 +138,7 @@ function App() {
                     index={index}
                     createCard={createCard}
                     removeCard={removeCard}
-                    addCard={addCard}
+                    editCard={editCard}
                   />
                 );
               })}

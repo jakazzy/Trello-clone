@@ -4,7 +4,14 @@ import "./CardColumn.css";
 import { Draggable, Droppable } from "react-beautiful-dnd";
 import uuidv4 from "uuid/v4";
 
-function CardColumn({ column, tasks, index, createCard, removeCard, addCard }) {
+function CardColumn({
+  column,
+  tasks,
+  index,
+  createCard,
+  removeCard,
+  editCard
+}) {
   const handleclick = id => {
     const cardid = uuidv4();
     const card = {
@@ -44,7 +51,7 @@ function CardColumn({ column, tasks, index, createCard, removeCard, addCard }) {
                       index={index}
                       removeCard={removeCard}
                       column={column}
-                      addCard={addCard}
+                      editCard={editCard}
                     />
                   ))}
                   {provided.placeholder}
