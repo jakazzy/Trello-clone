@@ -18,23 +18,7 @@ function App() {
       ...columns,
       tasks: { ...columns.tasks, [id]: card }
     };
-
-    // if (!card.id) {
-    //   card.id = `card${cardid}`;
-    // }
-
     setColumns({ ...newColumns });
-
-    // { [id]: { content: [content], id: [id] } };
-
-    // console.log(card);
-    // setColumns();
-
-    // { ...newColumns.tasks, card }
-    // newColumns.tasks[`card${cardid}`] = card;
-    // newColumns.columnsData[columnid].taskIds.push(`card${cardid}`);
-    // console.log(newColumns);
-    // setColumns({ ...newColumns });
   };
 
   const createCard = (name, card, id) => {
