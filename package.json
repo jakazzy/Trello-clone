@@ -26,13 +26,14 @@
         "uuid": "^3.3.3"
     },
     "scripts": {
+        "lint": "lint-staged",
         "start": "react-scripts start",
         "build": "react-scripts build",
         "test": "react-scripts test",
         "eject": "react-scripts eject"
     },
     "lint-staged": {
-        "src/**/*.{js,jsx}": [
+        "src/*.{js,jsx}": [
             "standard --fix | snazzy",
             "git add"
         ]

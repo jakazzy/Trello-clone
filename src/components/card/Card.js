@@ -7,14 +7,14 @@ function Card({ task, index, removeCard, column, editCard }) {
     content: ""
   });
 
-  const handleBlur = value => {
+  const handleBlur = (event, value) => {
+    event.preventDefault();
     removeCard(value, column.id);
-    return value;
   };
 
-  const handleSubmit = e => {
-    if (e.keyCode === 13 && e.shiftKey === false) {
-      e.preventDefault();
+  const handleSubmit = event => {
+    event.preventDefault();
+    if (event.keyCode === 13 && event.shiftKey === false) {
       editCard(values, column.id);
       setValues({ content: "" });
     }
