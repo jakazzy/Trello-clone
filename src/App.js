@@ -28,14 +28,10 @@ function App () {
 
   const removeCard = (card, columnId) => {
     const { id } = card
-    // let taskIds = columns.columnsData[columnId].taskIds;
-    // taskIds = taskIds.filter(cardId => id !== cardId);
     const data = columns
     data.columnsData[columnId].taskIds = data.columnsData[
       columnId
     ].taskIds.filter(cardId => id !== cardId)
-    // delete newColumns.tasks[`${id}`];
-    // newColumns.columnsData[`${columnId}`].taskIds.pop();
     setColumns({ ...data })
 
     console.log(data, 'this should run')
