@@ -18,8 +18,8 @@ export const getCard = (
       <form
         className="new-card"
         id="content-form"
-        onBlur={() => handleEvent(value)}
-        onKeyDown={handleSubmit}
+        onBlur={event => handleEvent(event, value)}
+        onKeyDown={event => handleSubmit(event)}
       >
         <li className="card">
           <span className="card-info">
@@ -36,7 +36,14 @@ export const getCard = (
             ></textarea>
           </span>
         </li>
-        <button type="submit">{value.button}</button>
+        <button
+          type="button"
+          onSubmit={event => {
+            handleSubmit(event);
+          }}
+        >
+          {value.button}
+        </button>
       </form>
     );
   } else if (!value.content && !value.focus) {

@@ -52,7 +52,7 @@
 .card {
     background-color: #fff;
     border-radius: 3px;
-    box-shadow: 0 1px 0 rgba(9, 30, 66, .25);
+    box-shadow: 0 1px 0 rgba(9, 30, 66, 0.25);
     cursor: pointer;
     display: block;
     margin-bottom: 8px;
@@ -80,7 +80,7 @@
     color: #5e6c84;
     /* border-radius: 3px; */
     margin: 2px 0 0 8px;
-    padding: 4px 15px
+    padding: 4px 15px;
 }
 
 .card-bottom-text {
@@ -104,10 +104,10 @@ textarea:focus {
 }
 
 textarea::placeholder {
-    color: #5e6c84
+    color: #5e6c84;
 }
 
-.new-card button[type="submit"] {
+.new-card button[type="button"] {
     display: inline-block;
     font-weight: 400;
     line-height: 20px;
