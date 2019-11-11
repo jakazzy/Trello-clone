@@ -33,8 +33,6 @@ function App () {
       columnId
     ].taskIds.filter(cardId => id !== cardId)
     setColumns({ ...data })
-
-    console.log(data, 'this should run')
   }
 
   const onDragEnd = results => {
