@@ -27,12 +27,14 @@ function App () {
   }
 
   const removeCard = (card, columnId) => {
-    const newColumns = columns
     const { id } = card
-    delete newColumns.tasks[`${id}`]
-    // newColumns.columnsData[`${columnId}`].taskIds.pop();
-    // setColumns({ ...newColumns });
-    console.log('this should run')
+    const data = columns
+    data.columnsData[columnId].taskIds = data.columnsData[
+      columnId
+    ].taskIds.filter(cardId => id !== cardId)
+    setColumns({ ...data })
+
+    console.log(data, 'this should run')
   }
 
   const onDragEnd = results => {
