@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { Draggable } from "react-beautiful-dnd";
-import { getCard } from "../../lib/utils";
+import { getCard } from "../../displayCard/displayCard";
 
 function Card({ task, index, removeCard, column, editCard }) {
   const [values, setValues] = useState({
