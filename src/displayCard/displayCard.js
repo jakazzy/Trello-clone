@@ -18,6 +18,7 @@ export const getCard = (
       <form
         className="new-card"
         id="content-form"
+        name="content-form"
         onBlur={event => handleEvent(event, value)}
         onKeyDown={event => handleSubmit(event)}
       >
@@ -27,7 +28,7 @@ export const getCard = (
               rows="1"
               cols="23"
               autoFocus
-              id="card-input"
+              id="content-text"
               placeholder="Enter a title for this card..."
               value={values.content}
               onChange={event => handleChange(event, value)}
@@ -38,9 +39,15 @@ export const getCard = (
         </li>
         <button
           type="button"
-          onSubmit={event => {
+          id="add-card-button"
+          onMouseDown={event => {
+            event.preventDefault();
             handleSubmit(event);
           }}
+          // onMouseDown={event => {
+          //   event.preventDefault();
+          //   console.log(event.target.id);
+          // }}
         >
           {value.button}
         </button>
