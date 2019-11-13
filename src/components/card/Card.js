@@ -1,11 +1,14 @@
 import React, { useState } from "react";
 import { Draggable } from "react-beautiful-dnd";
-import { getCard } from "../../displayCard/displayCard";
+import GetCard from "../../displayCard/displayCard";
 
 function Card({ task, index, removeCard, column, editCard }) {
   const [values, setValues] = useState({
     content: ""
   });
+
+  const [isOpen, setIsOpen] = useState(false);
+  const [position, setPosition] = useState({ modalTop: "", modalLeft: "" });
 
   const handleBlur = (event, value) => {
     console.log("i am the reason");
@@ -32,7 +35,34 @@ function Card({ task, index, removeCard, column, editCard }) {
     setValues({ ...values, ...card, content: event.target.value });
   };
 
-  const value = getCard(task, handleBlur, handleChange, values, handleSubmit);
+  const handleClick = event => {
+    setIsOpen(!isOpen);
+    setPosition({
+      ...position,
+      modalTop: `${event.clientY - 29}px`,
+      modalLeft: `${event.clientX - 231}px`
+    });
+    console.log(position, "this is it");
+  };
+
+  const handleClose = () => {
+    setIsOpen(!isOpen);
+  };
+  // const value = getCard(task, handleBlur, handleChange, values, handleSubmit);
+  const value = (
+    <GetCard
+      key={task.id}
+      task={task}
+      handleBlur={handleBlur}
+      handleChange={handleChange}
+      values={values}
+      handleSubmit={handleSubmit}
+      handleClick={handleClick}
+      isOpen={isOpen}
+      handleClose={handleClose}
+      position={position}
+    />
+  );
 
   return (
     <Draggable draggableId={task.id} index={index}>

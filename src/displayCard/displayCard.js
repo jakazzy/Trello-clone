@@ -1,25 +1,46 @@
 import React from "react";
+import Modal from "../components/modal/Modal";
 
-export const getCard = (
-  value,
-  handleEvent,
+function GetCard({
+  task,
+  handleBlur,
   handleChange,
   values,
-  handleSubmit
-) => {
-  if (value.content) {
+  handleSubmit,
+  handleClick,
+  isOpen,
+  handleClose,
+  position
+}) {
+  if (task.content) {
     return (
-      <li className="card">
-        <span className="card-info">{value.content}</span>
-      </li>
+      <div className="card-modal-container">
+        <Modal
+          key={task.id}
+          task={task}
+          handleChange={handleChange}
+          handleSubmit={handleSubmit}
+          isOpen={isOpen}
+          values={values}
+          handleClose={handleClose}
+          position={position}
+        />
+
+        <li className="card">
+          <p className="card-edit" onClick={event => handleClick(event)}>
+            edit
+          </p>
+          <span className="card-info">{task.content}</span>
+        </li>
+      </div>
     );
-  } else if (!value.content && value.focus) {
+  } else if (!task.content && task.focus) {
     return (
       <form
         className="new-card"
         id="content-form"
         name="content-form"
-        onBlur={event => handleEvent(event, value)}
+        onBlur={event => handleBlur(event, task)}
         onKeyDown={event => handleSubmit(event)}
       >
         <li className="card">
@@ -31,7 +52,7 @@ export const getCard = (
               id="content-text"
               placeholder="Enter a title for this card..."
               value={values.content}
-              onChange={event => handleChange(event, value)}
+              onChange={event => handleChange(event, task)}
               name="content-text"
               form="content-form"
             ></textarea>
@@ -49,11 +70,13 @@ export const getCard = (
           //   console.log(event.target.id);
           // }}
         >
-          {value.button}
+          {task.button}
         </button>
       </form>
     );
-  } else if (!value.content && !value.focus) {
+  } else if (!task.content && !task.focus) {
     return null;
   }
-};
+}
+
+export default GetCard;
