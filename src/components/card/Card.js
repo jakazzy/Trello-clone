@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { Draggable } from "react-beautiful-dnd";
-import { getCard } from "../../displayCard/displayCard";
+import GetCard from "../../displayCard/displayCard";
 
 function Card({ task, index, removeCard, column, editCard }) {
   const [values, setValues] = useState({
@@ -32,7 +32,17 @@ function Card({ task, index, removeCard, column, editCard }) {
     setValues({ ...values, ...card, content: event.target.value });
   };
 
-  const value = getCard(task, handleBlur, handleChange, values, handleSubmit);
+  // const value = getCard(task, handleBlur, handleChange, values, handleSubmit);
+  const value = (
+    <GetCard
+      key={task.id}
+      task={task}
+      handleBlur={handleBlur}
+      handleChange={handleChange}
+      values={values}
+      handleSubmit={handleSubmit}
+    />
+  );
 
   return (
     <Draggable draggableId={task.id} index={index}>

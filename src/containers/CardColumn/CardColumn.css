@@ -49,6 +49,44 @@
     margin: 0;
 }
 
+
+/* 
+.card-modal-container {
+    position: relative;
+} */
+
+.modal {
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 1;
+    padding-top: 1rem;
+    height: 100%;
+    width: 100%;
+    overflow: auto;
+    /* display: none; */
+    /* background-color: rgb(0, 0, 0); */
+    background-color: rgba(0, 0, 0, 0.07);
+    /* display: none; */
+}
+
+.modal-content {
+    position: fixed;
+    background-color: #fefefe;
+    padding: 0.375rem 0.5rem;
+    border: 1 solid #888;
+    width: 15rem;
+    line-height: 5.625rem;
+    min-height: 5.625rem;
+    text-align: center;
+    border-radius: 7px;
+    overflow: hidden;
+}
+
+textarea {
+    resize: none;
+}
+
 .card {
     background-color: #fff;
     border-radius: 3px;
@@ -64,6 +102,21 @@
     list-style-type: none;
     padding: 6px 8px 2px;
     flex-grow: 1;
+    position: relative;
+    .card-edit: {
+        opacity: 0
+    }
+}
+
+.card-edit {
+    position: absolute;
+    top: 1px;
+    right: 1px;
+    opacity: 0;
+}
+
+.card:hover .card-edit {
+    opacity: 1;
 }
 
 .card-info {
