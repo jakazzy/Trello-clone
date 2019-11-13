@@ -8,6 +8,7 @@ function Card({ task, index, removeCard, column, editCard }) {
   });
 
   const [isOpen, setIsOpen] = useState(false);
+  const [position, setPosition] = useState({ modalTop: "", modalLeft: "" });
 
   const handleBlur = (event, value) => {
     console.log("i am the reason");
@@ -34,8 +35,14 @@ function Card({ task, index, removeCard, column, editCard }) {
     setValues({ ...values, ...card, content: event.target.value });
   };
 
-  const handleClick = () => {
+  const handleClick = event => {
     setIsOpen(!isOpen);
+    setPosition({
+      ...position,
+      modalTop: `${event.clientY - 29}px`,
+      modalLeft: `${event.clientX - 231}px`
+    });
+    console.log(position, "this is it");
   };
 
   const handleClose = () => {
@@ -53,6 +60,7 @@ function Card({ task, index, removeCard, column, editCard }) {
       handleClick={handleClick}
       isOpen={isOpen}
       handleClose={handleClose}
+      position={position}
     />
   );
 

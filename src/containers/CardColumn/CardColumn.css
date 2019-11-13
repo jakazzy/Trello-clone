@@ -66,9 +66,18 @@
     overflow: auto;
     /* display: none; */
     /* background-color: rgb(0, 0, 0); */
-    background-color: rgba(0, 0, 0, 0.07);
+    background-color: rgba(0, 0, 0, 0.7);
     /* display: none; */
 }
+
+
+/* 145, 89 = 1154, 930  = 2.625*/
+
+
+/* top= 116px, left= 935 */
+
+
+/* 145, left = 1154 */
 
 .modal-content {
     position: fixed;
@@ -76,8 +85,8 @@
     padding: 0.375rem 0.5rem;
     border: 1 solid #888;
     width: 15rem;
-    line-height: 5.625rem;
-    min-height: 5.625rem;
+    line-height: 2.625rem;
+    min-height: 2.625rem;
     text-align: center;
     border-radius: 7px;
     overflow: hidden;
