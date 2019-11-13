@@ -6,7 +6,8 @@ const Modal = ({
   isOpen,
   values,
   handleClose,
-  position
+  position,
+  handleSubmit
 }) => {
   console.log(position, "here you are");
   return (
@@ -14,7 +15,7 @@ const Modal = ({
       <span onClick={handleClose} className="close">
         &times;
       </span>
-      <div className="modal-wrapper">
+      <div className="modal-wrapper" onKeyDown={event => handleSubmit(event)}>
         <textarea
           className="modal-content"
           style={{
