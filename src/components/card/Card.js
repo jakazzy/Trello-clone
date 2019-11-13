@@ -7,6 +7,8 @@ function Card({ task, index, removeCard, column, editCard }) {
     content: ""
   });
 
+  const [isOpen, setIsOpen] = useState(false);
+
   const handleBlur = (event, value) => {
     console.log("i am the reason");
     event.preventDefault();
@@ -32,6 +34,13 @@ function Card({ task, index, removeCard, column, editCard }) {
     setValues({ ...values, ...card, content: event.target.value });
   };
 
+  const handleClick = () => {
+    setIsOpen(!isOpen);
+  };
+
+  const handleClose = () => {
+    setIsOpen(!isOpen);
+  };
   // const value = getCard(task, handleBlur, handleChange, values, handleSubmit);
   const value = (
     <GetCard
@@ -41,6 +50,9 @@ function Card({ task, index, removeCard, column, editCard }) {
       handleChange={handleChange}
       values={values}
       handleSubmit={handleSubmit}
+      handleClick={handleClick}
+      isOpen={isOpen}
+      handleClose={handleClose}
     />
   );
 

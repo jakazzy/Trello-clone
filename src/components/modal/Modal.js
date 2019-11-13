@@ -1,19 +1,21 @@
 import React from "react";
 
-const Modal = ({ isOpen }) => {
+const Modal = ({ task, handleChange, isOpen, values, handleClose }) => {
   return (
     <div className="modal" style={{ display: isOpen ? "block" : "none" }}>
-      <span className="close">&times;</span>
-      {/* <div > */}
+      <span onClick={handleClose} className="close">
+        &times;
+      </span>
       <textarea
         className="modal-content"
         name=""
         cols="23"
         rows="1"
-        onChange={console.log("nice")}
-        value="here we are"
+        autoFocus
+        onChange={event => handleChange(event, task)}
+        value={values.content}
+        placeholder={task.content}
       ></textarea>
-      {/* </div> */}
     </div>
   );
 };

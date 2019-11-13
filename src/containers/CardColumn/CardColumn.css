@@ -83,6 +83,16 @@
     overflow: hidden;
 }
 
+.close {
+    color: #aaaaaa;
+    float: right;
+    font-size: 50px;
+    font-weight: bold;
+    position: fixed;
+    top: 2px;
+    right: 10px
+}
+
 textarea {
     resize: none;
 }

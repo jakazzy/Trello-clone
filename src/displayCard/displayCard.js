@@ -1,28 +1,31 @@
 import React from "react";
-// import Modal from "../components/modal/Modal";
+import Modal from "../components/modal/Modal";
 
-function GetCard({ task, handleBlur, handleChange, values, handleSubmit }) {
+function GetCard({
+  task,
+  handleBlur,
+  handleChange,
+  values,
+  handleSubmit,
+  handleClick,
+  isOpen,
+  handleClose
+}) {
   if (task.content) {
     return (
       <div className="card-modal-container">
-        {/* <div className="modal">
-          <span className="close">&times;</span>
-          {/* <div > */}
-        {/* <textarea
-            className="modal-content"
-            name=""
-            cols="23"
-            rows="1"
-            onChange={console.log("nice")}
-            value="here we are"
-          ></textarea> */}
-        {/* </div> */}
-        {/* </div> */}
+        <Modal
+          key={task.id}
+          task={task}
+          handleChange={handleChange}
+          handleSubmit={handleSubmit}
+          isOpen={isOpen}
+          values={values}
+          handleClose={handleClose}
+        />
+
         <li className="card">
-          <p
-            className="card-edit"
-            onClick={event => console.log(event.clientX)}
-          >
+          <p className="card-edit" onClick={event => handleClick(event)}>
             edit
           </p>
           <span className="card-info">{task.content}</span>
