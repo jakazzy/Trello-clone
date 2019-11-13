@@ -49,12 +49,6 @@
     margin: 0;
 }
 
-
-/* 
-.card-modal-container {
-    position: relative;
-} */
-
 .modal {
     position: fixed;
     top: 0;
@@ -64,10 +58,7 @@
     height: 100%;
     width: 100%;
     overflow: auto;
-    /* display: none; */
-    /* background-color: rgb(0, 0, 0); */
     background-color: rgba(0, 0, 0, 0.7);
-    /* display: none; */
 }
 
 .modal-content {
