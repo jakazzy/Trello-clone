@@ -70,15 +70,6 @@
     /* display: none; */
 }
 
-
-/* 145, 89 = 1154, 930  = 2.625*/
-
-
-/* top= 116px, left= 935 */
-
-
-/* 145, left = 1154 */
-
 .modal-content {
     position: fixed;
     background-color: #fefefe;
@@ -90,6 +81,10 @@
     text-align: center;
     border-radius: 7px;
     overflow: hidden;
+}
+
+.modal-content::placeholder {
+    color: #172b4d;
 }
 
 .close {
