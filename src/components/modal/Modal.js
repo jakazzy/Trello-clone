@@ -14,13 +14,16 @@ const Modal = ({
       <span onClick={handleClose} className="close">
         &times;
       </span>
-      <div className="modal-wrapper" onKeyDown={event => handleSubmit(event)}>
+      <div
+        className="modal-wrapper"
+        onKeyDown={event => handleSubmit(event)}
+        style={{
+          top: position.modalTop ? position.modalTop : undefined,
+          left: position.modalLeft ? position.modalLeft : undefined
+        }}
+      >
         <textarea
           className="modal-content"
-          style={{
-            top: position.modalTop ? position.modalTop : undefined,
-            left: position.modalLeft ? position.modalLeft : undefined
-          }}
           name=""
           cols="23"
           rows="1"
@@ -29,6 +32,10 @@ const Modal = ({
           value={values.content}
           placeholder={task.content}
         ></textarea>
+        <div className="modal-actions-wrapper">
+          <div className="modal-actions">Move</div>
+          <div className="modal-actions">Delete</div>
+        </div>
       </div>
     </div>
   );
