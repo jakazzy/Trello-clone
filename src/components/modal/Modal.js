@@ -9,7 +9,6 @@ const Modal = ({
   position,
   handleSubmit
 }) => {
-  console.log(position, "here you are");
   return (
     <div className="modal" style={{ display: isOpen ? "block" : "none" }}>
       <span onClick={handleClose} className="close">

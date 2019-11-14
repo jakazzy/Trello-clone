@@ -26,6 +26,7 @@ function Card({ task, index, removeCard, column, editCard }) {
       console.log("me too");
       editCard(values, column.id);
       setValues({ content: "" });
+      if (isOpen) setIsOpen(false);
     }
   };
 
