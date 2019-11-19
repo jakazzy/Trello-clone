@@ -193,3 +193,48 @@ textarea::placeholder {
     text-align: center;
     border-radius: 2px;
 }
+
+.move-actions {
+    position: fixed;
+    background: #fff;
+    width: 20rem;
+    text-align: center;
+    color: #5e6c84;
+    border-radius: 5px;
+    margin: 0
+}
+
+.move-actions.actions-content {
+    text-align: center;
+}
+
+input.move-actions-input {
+    margin-right: 0;
+    background: #DDD;
+    padding: 0px 12px;
+}
+
+input.move-actions-input[type='text'] {
+    width: 18rem
+}
+
+
+/* .move-actions button []{
+    background-color: #5aac44;
+    box-shadow: none;
+    border: none;
+    color: #fff; } */
+
+.move-actions button[type="submit"] {
+    /* display: inline-block; */
+    font-weight: 600;
+    margin: 6px;
+    padding: 6px 20px;
+    background-color: #5aac44;
+    box-shadow: none;
+    border: none;
+    color: #fff;
+    cursor: pointer;
+    text-align: center;
+    border-radius: 5px;
+}
