@@ -1,77 +1,78 @@
-import React, { useState } from 'react'
-import './App.css'
-import CardColumn from './containers/CardColumn/CardColumn'
-import { DragDropContext, Droppable } from 'react-beautiful-dnd'
-import Navbar from './components/navbar/Navbar'
-import data from './data'
+import React, { useState } from "react";
+import "./App.css";
+import CardColumn from "./containers/CardColumn/CardColumn";
+import { DragDropContext, Droppable } from "react-beautiful-dnd";
+import Navbar from "./components/navbar/Navbar";
+import data from "./data";
 
-function App () {
-  const [columns, setColumns] = useState(data)
+function App() {
+  const [columns, setColumns] = useState(data);
 
   const editCard = card => {
-    delete card.button
-    delete card.focus
-    const { id } = card
+    delete card.button;
+    delete card.focus;
+    const { id } = card;
     const newColumns = {
       ...columns,
       tasks: { ...columns.tasks, [id]: card }
-    }
-    setColumns({ ...newColumns })
-  }
+    };
+    setColumns({ ...newColumns });
+  };
 
   const createCard = (name, card, id) => {
-    const newColumns = columns
-    newColumns.tasks[name] = card
-    newColumns.columnsData[id].taskIds.push(name)
-    setColumns({ ...newColumns })
-  }
+    const newColumns = columns;
+    newColumns.tasks[name] = card;
+    newColumns.columnsData[id].taskIds.push(name);
+    setColumns({ ...newColumns });
+  };
 
   const removeCard = (card, columnId) => {
-    const { id } = card
-    const data = columns
+    const { id } = card;
+    const data = columns;
+    console.log(columnId, "this is columnid");
     data.columnsData[columnId].taskIds = data.columnsData[
       columnId
-    ].taskIds.filter(cardId => id !== cardId)
-    setColumns({ ...data })
-  }
+    ].taskIds.filter(cardId => id !== cardId);
+    setColumns({ ...data });
+  };
 
   const onDragEnd = results => {
-    const { destination, source, draggableId, type } = results
+    const { destination, source, draggableId, type } = results;
     if (!destination) {
-      return
+      return;
     }
     if (
       destination.droppableId === source.droppableId &&
       destination.index === source.index
     ) {
-      return
+      return;
     }
 
-    if (type === 'column') {
-      const newColumnOrder = Array.from(columns.columnOrder)
-      newColumnOrder.splice(source.index, 1)
-      newColumnOrder.splice(destination.index, 0, draggableId)
+    if (type === "column") {
+      const newColumnOrder = Array.from(columns.columnOrder);
+      newColumnOrder.splice(source.index, 1);
+      newColumnOrder.splice(destination.index, 0, draggableId);
 
       const newState = {
         ...columns,
         columnOrder: newColumnOrder
-      }
-      setColumns(newState)
-      return
+      };
+      setColumns(newState);
+      return;
     }
 
-    const start = columns.columnsData[source.droppableId]
-    const finish = columns.columnsData[destination.droppableId]
+    const start = columns.columnsData[source.droppableId];
+    const finish = columns.columnsData[destination.droppableId];
 
     if (start === finish) {
-      const newTaskIds = Array.from(start.taskIds)
+      const newTaskIds = Array.from(start.taskIds);
 
-      newTaskIds.splice(source.index, 1)
-      newTaskIds.splice(destination.index, 0, draggableId)
+      newTaskIds.splice(source.index, 1);
+      newTaskIds.splice(destination.index, 0, draggableId);
       const newColumn = {
         ...start,
         taskIds: newTaskIds
-      }
+      };
       const newData = {
         ...columns,
 
@@ -79,25 +80,25 @@ function App () {
           ...columns.columnsData,
           [newColumn.id]: newColumn
         }
-      }
-      setColumns(newData)
-      return
+      };
+      setColumns(newData);
+      return;
     }
 
-    const startTaskIds = Array.from(start.taskIds)
-    startTaskIds.splice(source.index, 1)
+    const startTaskIds = Array.from(start.taskIds);
+    startTaskIds.splice(source.index, 1);
     const newStart = {
       ...start,
       taskIds: startTaskIds
-    }
+    };
 
-    const finishTaskIds = Array.from(finish.taskIds)
-    finishTaskIds.splice(destination.index, 0, draggableId)
+    const finishTaskIds = Array.from(finish.taskIds);
+    finishTaskIds.splice(destination.index, 0, draggableId);
 
     const newFinish = {
       ...finish,
       taskIds: finishTaskIds
-    }
+    };
 
     const newState = {
       ...columns,
@@ -106,30 +107,30 @@ function App () {
         [newStart.id]: newStart,
         [newFinish.id]: newFinish
       }
-    }
-    setColumns(newState)
-  }
+    };
+    setColumns(newState);
+  };
 
   return (
-    <div className='task-board'>
+    <div className="task-board">
       <Navbar />
       <DragDropContext onDragEnd={onDragEnd}>
         <Droppable
-          droppableId='all-columns'
-          direction='horizontal'
-          type='column'
+          droppableId="all-columns"
+          direction="horizontal"
+          type="column"
         >
           {provided => (
             <div
-              className='sub-board'
+              className="sub-board"
               {...provided.droppableProps}
               ref={provided.innerRef}
             >
               {columns.columnOrder.map((columnValue, index) => {
-                const column = columns.columnsData[columnValue]
+                const column = columns.columnsData[columnValue];
                 const tasks = column.taskIds.map(
                   taskId => columns.tasks[taskId]
-                )
+                );
                 return (
                   <CardColumn
                     column={column}
@@ -140,7 +141,7 @@ function App () {
                     removeCard={removeCard}
                     editCard={editCard}
                   />
-                )
+                );
               })}
               {provided.placeholder}
             </div>
@@ -148,7 +149,7 @@ function App () {
         </Droppable>
       </DragDropContext>
     </div>
-  )
+  );
 }
 
-export default App
+export default App;

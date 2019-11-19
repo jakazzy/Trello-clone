@@ -49,7 +49,11 @@ function Card({ task, index, removeCard, column, editCard }) {
   const handleClose = () => {
     setIsOpen(!isOpen);
   };
-  // const value = getCard(task, handleBlur, handleChange, values, handleSubmit);
+
+  const handleDelete = value => {
+    removeCard(value, column.id);
+  };
+
   const value = (
     <GetCard
       key={task.id}
@@ -62,6 +66,7 @@ function Card({ task, index, removeCard, column, editCard }) {
       isOpen={isOpen}
       handleClose={handleClose}
       position={position}
+      handleDelete={handleDelete}
     />
   );
 

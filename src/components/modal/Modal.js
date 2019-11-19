@@ -7,7 +7,8 @@ const Modal = ({
   values,
   handleClose,
   position,
-  handleSubmit
+  handleSubmit,
+  handleDelete
 }) => {
   return (
     <div className="modal" style={{ display: isOpen ? "block" : "none" }}>
@@ -34,7 +35,9 @@ const Modal = ({
         ></textarea>
         <div className="modal-actions-wrapper">
           <div className="modal-actions">Move</div>
-          <div className="modal-actions">Delete</div>
+          <div className="modal-actions" onClick={() => handleDelete(task)}>
+            Delete
+          </div>
         </div>
       </div>
     </div>

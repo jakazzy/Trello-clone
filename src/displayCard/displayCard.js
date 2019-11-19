@@ -10,7 +10,8 @@ function GetCard({
   handleClick,
   isOpen,
   handleClose,
-  position
+  position,
+  handleDelete
 }) {
   if (task.content) {
     return (
@@ -24,6 +25,7 @@ function GetCard({
           values={values}
           handleClose={handleClose}
           position={position}
+          handleDelete={handleDelete}
         />
 
         <li className="card">
