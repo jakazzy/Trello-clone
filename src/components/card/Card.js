@@ -8,6 +8,7 @@ function Card({ task, index, removeCard, column, editCard }) {
   });
 
   const [isOpen, setIsOpen] = useState(false);
+  const [isMove, setIsMove] = useState(false);
   const [position, setPosition] = useState({ modalTop: "", modalLeft: "" });
 
   const handleBlur = (event, value) => {
@@ -26,6 +27,7 @@ function Card({ task, index, removeCard, column, editCard }) {
       console.log("me too");
       editCard(values, column.id);
       setValues({ content: "" });
+      if (isOpen) setIsOpen(false);
     }
   };
 
@@ -39,8 +41,8 @@ function Card({ task, index, removeCard, column, editCard }) {
     setIsOpen(!isOpen);
     setPosition({
       ...position,
-      modalTop: `${event.clientY - 29}px`,
-      modalLeft: `${event.clientX - 231}px`
+      modalTop: event.clientY - 29,
+      modalLeft: event.clientX - 231
     });
     console.log(position, "this is it");
   };
@@ -48,7 +50,14 @@ function Card({ task, index, removeCard, column, editCard }) {
   const handleClose = () => {
     setIsOpen(!isOpen);
   };
-  // const value = getCard(task, handleBlur, handleChange, values, handleSubmit);
+
+  const handleMove = () => {
+    setIsMove(!isMove);
+  };
+  const handleDelete = value => {
+    removeCard(value, column.id);
+  };
+
   const value = (
     <GetCard
       key={task.id}
@@ -61,6 +70,9 @@ function Card({ task, index, removeCard, column, editCard }) {
       isOpen={isOpen}
       handleClose={handleClose}
       position={position}
+      handleDelete={handleDelete}
+      handleMove={handleMove}
+      isMove={isMove}
     />
   );
 
