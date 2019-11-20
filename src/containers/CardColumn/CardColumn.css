@@ -99,7 +99,7 @@
     font-weight: bold;
     position: fixed;
     top: 2px;
-    right: 10px
+    right: 10px;
 }
 
 textarea {
@@ -123,7 +123,7 @@ textarea {
     flex-grow: 1;
     position: relative;
     .card-edit: {
-        opacity: 0
+        opacity: 0;
     }
 }
 
@@ -197,11 +197,11 @@ textarea::placeholder {
 .move-actions {
     position: fixed;
     background: #fff;
-    width: 20rem;
+    width: 18rem;
     text-align: center;
     color: #5e6c84;
     border-radius: 5px;
-    margin: 0
+    margin: 0;
 }
 
 .move-actions.actions-content {
@@ -210,12 +210,13 @@ textarea::placeholder {
 
 input.move-actions-input {
     margin-right: 0;
-    background: #DDD;
+    background: #ddd;
     padding: 0px 12px;
+    outline: none;
 }
 
-input.move-actions-input[type='text'] {
-    width: 18rem
+input.move-actions-input[type="text"] {
+    width: 16rem;
 }
 
 
@@ -237,4 +238,23 @@ input.move-actions-input[type='text'] {
     cursor: pointer;
     text-align: center;
     border-radius: 5px;
+}
+
+#column-options {
+    border: none;
+    cursor: pointer;
+    margin: 0;
+    width: 16rem;
+    height: 1.8rem;
+    margin-top: 0.5rem;
+    border-radius: 5px;
+    padding: -0.5rem;
+    box-sizing: border-box;
+    outline: none;
+    appearance: none;
+}
+
+#column-options {
+    color: #a0aec0;
+    padding-left: 0.5rem;
 }

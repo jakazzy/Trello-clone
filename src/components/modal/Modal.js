@@ -57,17 +57,19 @@ const Modal = ({
       >
         <span className="move-actions-title">Move Card</span>
         <div className="actions-content">
-          <input
-            placeholder="column"
-            className="move-actions-input"
-            type="text"
-          />
+          <select name="select-column" id="column-options">
+            <option value="car">car</option>
+            <option value="car">car</option>
+            <option value="car">car</option>
+            <option value="car">car</option>
+          </select>
         </div>
         <div className="actions-content">
           <input
             placeholder="position 1"
             className="move-actions-input"
             type="text"
+            required
           />
         </div>
 
