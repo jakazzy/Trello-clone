@@ -205,7 +205,7 @@ textarea::placeholder {
 }
 
 .move-actions.actions-content {
-    text-align: center;
+    /* text-align: center; */
 }
 
 input.move-actions-input {
@@ -240,21 +240,39 @@ input.move-actions-input[type="text"] {
     border-radius: 5px;
 }
 
-#column-options {
-    border: none;
+.column-options {
+    /* border: none;
     cursor: pointer;
     margin: 0;
     width: 16rem;
     height: 1.8rem;
     margin-top: 0.5rem;
-    border-radius: 5px;
+    
     padding: -0.5rem;
     box-sizing: border-box;
     outline: none;
+     */
     appearance: none;
 }
 
-#column-options {
+.actions-content {
+    background: #ddd;
+    margin-right: 0.2rem;
+    border-radius: 5px;
+    line-height: 1.8rem;
+}
+
+.select-actions {
+    display: flex;
+    width: 17rem;
+    margin: 0 auto;
+}
+
+.column-options {
     color: #a0aec0;
     padding-left: 0.5rem;
+}
+
+label {
+    display: block;
 }
