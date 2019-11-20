@@ -57,18 +57,22 @@ const Modal = ({
       >
         <span className="move-actions-title">Move Card</span>
         <div className="select-actions">
-          <div className="actions-content" style={{ flexGrow: 2.5 }}>
+          <div className="actions-content" style={{ flexGrow: 1 }}>
             <label>Column</label>
-            <select name="select-column" className="column-options">
+            <select
+              name="select-column"
+              className="column-options"
+              id="column-select"
+            >
               <option value="car">car</option>
               <option value="car">car</option>
               <option value="car">car</option>
               <option value="car">car</option>
             </select>
           </div>
-          <div className="actions-content">
+          <div className="actions-content" style={{ flexGrow: 1 }}>
             <label>Position</label>
-            <select name="select-column" className="column-options">
+            <select name="select-position" className="column-options">
               <option value="car">car</option>
               <option value="car">car</option>
               <option value="car">car</option>

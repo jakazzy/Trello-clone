@@ -204,6 +204,11 @@ textarea::placeholder {
     margin: 0;
 }
 
+.move-actions-title {
+    font-size: 18px;
+    padding-top: 10px;
+}
+
 .move-actions.actions-content {
     /* text-align: center; */
 }
@@ -252,14 +257,16 @@ input.move-actions-input[type="text"] {
     box-sizing: border-box;
     outline: none;
      */
-    appearance: none;
+    -webkit-appearance: none;
+    text-align: center;
 }
 
 .actions-content {
     background: #ddd;
     margin-right: 0.2rem;
     border-radius: 5px;
-    line-height: 1.8rem;
+    line-height: 1.3rem;
+    padding: 0.2rem 0;
 }
 
 .select-actions {
@@ -269,10 +276,20 @@ input.move-actions-input[type="text"] {
 }
 
 .column-options {
-    color: #a0aec0;
-    padding-left: 0.5rem;
+    text-align-last: center;
+    font-size: 20px;
 }
 
 label {
     display: block;
+    font-size: 14px;
+    color: #718096;
+}
+
+#column-select {
+    width: 10rem;
+}
+
+option {
+    text-align: center;
 }
