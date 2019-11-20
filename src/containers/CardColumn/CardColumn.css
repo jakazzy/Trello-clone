@@ -272,7 +272,8 @@ input.move-actions-input[type="text"] {
 .select-actions {
     display: flex;
     width: 17rem;
-    margin: 0 auto;
+    margin: 0.7rem auto;
+    margin-bottom: 0.2rem;
 }
 
 .column-options {
