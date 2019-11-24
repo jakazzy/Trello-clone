@@ -15,7 +15,7 @@ const Modal = ({
   column
 }) => {
   const { columnsData, columnOrder } = data;
-  console.log(column.taskIds.indexOf(task.id), "hello");
+  console.log(column.taskIds.indexOf(task.id) + 1, "hello");
   const [val, setVal] = useState({
     col: column.title,
     pos: column.taskIds.indexOf(task.id) + 1
@@ -23,7 +23,7 @@ const Modal = ({
   const handleVal = () => {
     setVal("to do");
   };
-  const display = data.columnOrder.map(columnItem => {
+  const displayColumn = data.columnOrder.map(columnItem => {
     // const selected = columnsData[column].title === column.title;
     return (
       <option
@@ -36,6 +36,13 @@ const Modal = ({
     console.log(columnsData[column], "this is column");
   });
 
+  const displayPosition = column.taskIds.map((cardPosition, index) => {
+    return (
+      <option value={cardPosition} key={cardPosition}>
+        {index + 1}
+      </option>
+    );
+  });
   return (
     <div className="modal" style={{ display: isOpen ? "block" : "none" }}>
       <span onClick={handleClose} className="close">
@@ -94,7 +101,7 @@ const Modal = ({
               <option value="car">car</option>
               <option value="car">car</option>
               <option value="car">car</option> */}
-              {display}
+              {displayColumn}
             </select>
           </div>
           <div className="actions-content" style={{ flexGrow: 1 }}>
@@ -106,10 +113,11 @@ const Modal = ({
               onChange={handleVal}
               required
             >
+              {/* <option value="car">car</option>
               <option value="car">car</option>
               <option value="car">car</option>
-              <option value="car">car</option>
-              <option value="car">car</option>
+              <option value="car">car</option> */}
+              {displayPosition}
             </select>
           </div>
         </div>
