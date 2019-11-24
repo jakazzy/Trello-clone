@@ -8,6 +8,14 @@ import data from "./data";
 function App() {
   const [columns, setColumns] = useState(data);
 
+  const moveCard = () => {
+    // get the cards columns and position.
+    // display the cards columns and position on the move modal
+    // drop doan for columns should display all the columns
+    // drop down for the position should siplay possible positions
+    // choose column and add the card to its list of cards
+  };
+
   const editCard = card => {
     delete card.button;
     delete card.focus;
@@ -140,6 +148,7 @@ function App() {
                     createCard={createCard}
                     removeCard={removeCard}
                     editCard={editCard}
+                    data={columns}
                   />
                 );
               })}

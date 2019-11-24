@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import { Draggable } from "react-beautiful-dnd";
 import GetCard from "../../displayCard/displayCard";
 
-function Card({ task, index, removeCard, column, editCard }) {
+function Card({ task, index, removeCard, column, editCard, data }) {
   const [values, setValues] = useState({
     content: ""
   });
@@ -61,6 +61,7 @@ function Card({ task, index, removeCard, column, editCard }) {
   const value = (
     <GetCard
       key={task.id}
+      column={column}
       task={task}
       handleBlur={handleBlur}
       handleChange={handleChange}
@@ -73,6 +74,7 @@ function Card({ task, index, removeCard, column, editCard }) {
       handleDelete={handleDelete}
       handleMove={handleMove}
       isMove={isMove}
+      data={data}
     />
   );
 

@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 
 const Modal = ({
   task,
@@ -10,8 +10,32 @@ const Modal = ({
   handleSubmit,
   handleDelete,
   handleMove,
-  isMove
+  isMove,
+  data,
+  column
 }) => {
+  const { columnsData, columnOrder } = data;
+  console.log(column.taskIds.indexOf(task.id), "hello");
+  const [val, setVal] = useState({
+    col: column.title,
+    pos: column.taskIds.indexOf(task.id) + 1
+  });
+  const handleVal = () => {
+    setVal("to do");
+  };
+  const display = data.columnOrder.map(columnItem => {
+    // const selected = columnsData[column].title === column.title;
+    return (
+      <option
+        value={columnsData[columnItem].title}
+        key={columnsData[columnItem].id}
+      >
+        {columnsData[columnItem].title}
+      </option>
+    );
+    console.log(columnsData[column], "this is column");
+  });
+
   return (
     <div className="modal" style={{ display: isOpen ? "block" : "none" }}>
       <span onClick={handleClose} className="close">
@@ -25,7 +49,6 @@ const Modal = ({
           left: position.modalLeft ? `${position.modalLeft}px` : undefined
         }}
       >
-        {console.log(position, "this is the position")}
         <textarea
           className="modal-content"
           name=""
@@ -63,16 +86,26 @@ const Modal = ({
               name="select-column"
               className="column-options"
               id="column-select"
+              value={val.col}
+              onChange={handleVal}
+              required
             >
+              {/* <option value="car">car</option>
               <option value="car">car</option>
               <option value="car">car</option>
-              <option value="car">car</option>
-              <option value="car">car</option>
+              <option value="car">car</option> */}
+              {display}
             </select>
           </div>
           <div className="actions-content" style={{ flexGrow: 1 }}>
             <label>Position</label>
-            <select name="select-position" className="column-options">
+            <select
+              name="select-position"
+              className="column-options"
+              value={val.pos}
+              onChange={handleVal}
+              required
+            >
               <option value="car">car</option>
               <option value="car">car</option>
               <option value="car">car</option>
