@@ -125,10 +125,6 @@ const Modal = ({
               onChange={handleVal}
               required
             >
-              {/* <option value="car">car</option>
-              <option value="car">car</option>
-              <option value="car">car</option>
-              <option value="car">car</option> */}
               {displayPosition}
             </select>
           </div>
