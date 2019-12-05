@@ -51,13 +51,12 @@ const Modal = ({
   });
 
   const displayPosition = column.taskIds.map((cardPosition, index) => {
-    if (cardPosition === cardClicked) {
-      return (
-        <option value={cardPosition} key={cardPosition}>
-          {index + 1}
-        </option>
-      );
-    }
+    const value = cardPosition === cardClicked ? index + 1 : 0;
+    return (
+      <option value={value} key={cardPosition}>
+        {index + 1}
+      </option>
+    );
   });
   return (
     <div className="modal" style={{ display: isOpen ? "block" : "none" }}>
