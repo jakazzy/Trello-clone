@@ -15,7 +15,9 @@ function GetCard({
   handleMove,
   isMove,
   data,
-  column
+  column,
+  openCard,
+  cardClicked
 }) {
   if (task.content) {
     return (
@@ -34,6 +36,8 @@ function GetCard({
           isMove={isMove}
           data={data}
           column={column}
+          openCard={openCard}
+          cardClicked={cardClicked}
         />
 
         <li className="card">

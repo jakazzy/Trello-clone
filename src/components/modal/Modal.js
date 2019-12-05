@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 
 const Modal = ({
   task,
@@ -12,16 +12,31 @@ const Modal = ({
   handleMove,
   isMove,
   data,
-  column
+  column,
+  openCard,
+  cardClicked
 }) => {
   const { columnsData, columnOrder } = data;
-  console.log(column.taskIds.indexOf(task.id) + 1, "hello");
+  console.log(
+    column.taskIds.lastIndexOf(task.id) + 1,
+    "hello",
+    "openCard :",
+    openCard
+  );
   const [val, setVal] = useState({
     col: column.title,
-    pos: column.taskIds.indexOf(task.id) + 1
+    pos: openCard ? column.taskIds.indexOf(openCard) + 1 : 0
   });
+
+  useEffect(() => {
+    setVal({ ...val, pos: column.taskIds.indexOf(openCard) + 1 });
+    // return () => {
+    //   cleanup;
+    // };
+  }, [openCard]);
+
   const handleVal = () => {
-    setVal("to do");
+    // setVal("to do");
   };
   const displayColumn = data.columnOrder.map(columnItem => {
     // const selected = columnsData[column].title === column.title;
@@ -33,15 +48,16 @@ const Modal = ({
         {columnsData[columnItem].title}
       </option>
     );
-    console.log(columnsData[column], "this is column");
   });
 
   const displayPosition = column.taskIds.map((cardPosition, index) => {
-    return (
-      <option value={cardPosition} key={cardPosition}>
-        {index + 1}
-      </option>
-    );
+    if (cardPosition === cardClicked) {
+      return (
+        <option value={cardPosition} key={cardPosition}>
+          {index + 1}
+        </option>
+      );
+    }
   });
   return (
     <div className="modal" style={{ display: isOpen ? "block" : "none" }}>
@@ -97,10 +113,6 @@ const Modal = ({
               onChange={handleVal}
               required
             >
-              {/* <option value="car">car</option>
-              <option value="car">car</option>
-              <option value="car">car</option>
-              <option value="car">car</option> */}
               {displayColumn}
             </select>
           </div>
