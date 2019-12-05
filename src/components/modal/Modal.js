@@ -51,9 +51,8 @@ const Modal = ({
   });
 
   const displayPosition = column.taskIds.map((cardPosition, index) => {
-    const value = cardPosition === cardClicked ? index + 1 : 0;
     return (
-      <option value={value} key={cardPosition}>
+      <option value={index + 1} key={cardPosition}>
         {index + 1}
       </option>
     );
