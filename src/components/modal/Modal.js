@@ -35,8 +35,12 @@ const Modal = ({
     // };
   }, [openCard]);
 
-  const handleVal = () => {
-    // setVal("to do");
+  const handleVal = (event, field, option) => {
+    console.log(event, field[option], "iam event", event.target.value);
+    let value = field;
+    value[option] = event.target.value;
+    setVal({ ...val, ...value });
+    console.log(val);
   };
   const displayColumn = data.columnOrder.map(columnItem => {
     // const selected = columnsData[column].title === column.title;
@@ -108,7 +112,7 @@ const Modal = ({
               className="column-options"
               id="column-select"
               value={val.col}
-              onChange={handleVal}
+              onChange={event => handleVal(event, val, "col")}
               required
             >
               {displayColumn}
@@ -120,7 +124,8 @@ const Modal = ({
               name="select-position"
               className="column-options"
               value={val.pos}
-              onChange={handleVal}
+              id="position-select"
+              onChange={event => handleVal(event, val, "pos")}
               required
             >
               {displayPosition}
