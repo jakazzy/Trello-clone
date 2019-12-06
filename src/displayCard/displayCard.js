@@ -13,7 +13,12 @@ function GetCard({
   position,
   handleDelete,
   handleMove,
-  isMove
+  isMove,
+  data,
+  column,
+  openCard,
+  cardClicked,
+  moveCard
 }) {
   if (task.content) {
     return (
@@ -30,6 +35,11 @@ function GetCard({
           handleDelete={handleDelete}
           handleMove={handleMove}
           isMove={isMove}
+          data={data}
+          column={column}
+          openCard={openCard}
+          cardClicked={cardClicked}
+          moveCard={moveCard}
         />
 
         <li className="card">

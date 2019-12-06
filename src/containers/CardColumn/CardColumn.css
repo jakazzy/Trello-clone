@@ -209,8 +209,8 @@ textarea::placeholder {
     padding-top: 10px;
 }
 
-.move-actions.actions-content {
-    /* text-align: center; */
+.actions-content:hover {
+    background-color: #ccc8c8;
 }
 
 input.move-actions-input {

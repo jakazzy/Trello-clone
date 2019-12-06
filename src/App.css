@@ -26,14 +26,41 @@ body {
 } */
 
 body {
-    background-color: #3979bf;
-    margin: 0;
-    box-sizing: border-box;
+  background-color: #3979bf;
+  margin: 0;
+  box-sizing: border-box;
+}
+.board {
+  display: flex;
+  width: 100%;
+  justify-content: center;
 }
 
+.add-board {
+  width: 272px;
+  height: 42px;
+  background: rgba(255, 255, 255, 0.24);
+  color: #fff;
+  border-radius: 2px;
+  margin: 0.25rem;
+  padding: 4px;
+}
+
+.add-list {
+  padding: 6px 8px;
+  cursor: pointer;
+}
+
+.plus-icon {
+  width: 20px;
+  height: 20px;
+  margin: 0 2px 0 0;
+  display: inline-block;
+  font-size: 19px;
+}
 .sub-board {
-    margin-top: 2rem;
-    display: flex;
-    flex-direction: row;
-    justify-content: center;
+  margin-top: 2rem;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
 }

@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 
 const Modal = ({
   task,
@@ -10,8 +10,67 @@ const Modal = ({
   handleSubmit,
   handleDelete,
   handleMove,
-  isMove
+  isMove,
+  data,
+  column,
+  openCard,
+  cardClicked,
+  moveCard
 }) => {
+  const { columnsData, columnOrder } = data;
+  console.log(
+    column.taskIds.lastIndexOf(task.id) + 1,
+    "hello",
+    "openCard :",
+    openCard
+  );
+  const [val, setVal] = useState({
+    col1: column.title,
+    pos1: openCard ? column.taskIds.indexOf(openCard) + 1 : 0,
+    col: column.title,
+    pos: openCard ? column.taskIds.indexOf(openCard) + 1 : 0
+  });
+
+  useEffect(() => {
+    setVal({ ...val, pos: column.taskIds.indexOf(openCard) + 1 });
+  }, [openCard]);
+
+  const handleVal = (event, field, option) => {
+    console.log(event, field[option], "iam event", event.target.value);
+    let value = field;
+    value[option] = event.target.value;
+    setVal({ ...val, ...value });
+    console.log(val);
+  };
+  const displayColumn = data.columnOrder.map(columnItem => {
+    // const selected = columnsData[column].title === column.title;
+    return (
+      <option
+        value={columnsData[columnItem].title}
+        key={columnsData[columnItem].id}
+      >
+        {columnsData[columnItem].title}
+      </option>
+    );
+  });
+
+  const displayPosition = column.taskIds.map((cardPosition, index) => {
+    return (
+      <option value={index + 1} key={cardPosition}>
+        {index + 1}
+      </option>
+    );
+  });
+
+  const handleCardMove = (
+    card,
+    column,
+    previousposition,
+    previousColumn,
+    val
+  ) => {
+    moveCard(card, column, previousposition, previousColumn, val);
+  };
   return (
     <div className="modal" style={{ display: isOpen ? "block" : "none" }}>
       <span onClick={handleClose} className="close">
@@ -25,7 +84,6 @@ const Modal = ({
           left: position.modalLeft ? `${position.modalLeft}px` : undefined
         }}
       >
-        {console.log(position, "this is the position")}
         <textarea
           className="modal-content"
           name=""
@@ -63,25 +121,34 @@ const Modal = ({
               name="select-column"
               className="column-options"
               id="column-select"
+              value={val.col}
+              onChange={event => handleVal(event, val, "col")}
+              required
             >
-              <option value="car">car</option>
-              <option value="car">car</option>
-              <option value="car">car</option>
-              <option value="car">car</option>
+              {displayColumn}
             </select>
           </div>
           <div className="actions-content" style={{ flexGrow: 1 }}>
             <label>Position</label>
-            <select name="select-position" className="column-options">
-              <option value="car">car</option>
-              <option value="car">car</option>
-              <option value="car">car</option>
-              <option value="car">car</option>
+            <select
+              name="select-position"
+              className="column-options"
+              value={val.pos}
+              id="position-select"
+              onChange={event => handleVal(event, val, "pos")}
+              required
+            >
+              {displayPosition}
             </select>
           </div>
         </div>
 
-        <button type="submit">Move</button>
+        <button
+          onClick={() => handleCardMove(task, column, val.pos1, val.col1, val)}
+          type="submit"
+        >
+          Move
+        </button>
       </div>
     </div>
   );

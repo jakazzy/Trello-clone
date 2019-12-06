@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import { Draggable } from "react-beautiful-dnd";
 import GetCard from "../../displayCard/displayCard";
 
-function Card({ task, index, removeCard, column, editCard }) {
+function Card({ task, index, removeCard, column, editCard, data, moveCard }) {
   const [values, setValues] = useState({
     content: ""
   });
@@ -10,7 +10,8 @@ function Card({ task, index, removeCard, column, editCard }) {
   const [isOpen, setIsOpen] = useState(false);
   const [isMove, setIsMove] = useState(false);
   const [position, setPosition] = useState({ modalTop: "", modalLeft: "" });
-
+  const [openCard, setOpenCard] = useState("");
+  const [cardClicked, setcardClicked] = useState("");
   const handleBlur = (event, value) => {
     console.log("i am the reason");
     event.preventDefault();
@@ -38,6 +39,9 @@ function Card({ task, index, removeCard, column, editCard }) {
   };
 
   const handleClick = event => {
+    console.log(task.id, "hievent");
+    setcardClicked(task.id);
+    setOpenCard(task.id);
     setIsOpen(!isOpen);
     setPosition({
       ...position,
@@ -61,6 +65,7 @@ function Card({ task, index, removeCard, column, editCard }) {
   const value = (
     <GetCard
       key={task.id}
+      column={column}
       task={task}
       handleBlur={handleBlur}
       handleChange={handleChange}
@@ -73,6 +78,10 @@ function Card({ task, index, removeCard, column, editCard }) {
       handleDelete={handleDelete}
       handleMove={handleMove}
       isMove={isMove}
+      data={data}
+      openCard={openCard}
+      cardClicked={cardClicked}
+      moveCard={moveCard}
     />
   );
 
