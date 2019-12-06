@@ -4,6 +4,7 @@ import CardColumn from "./containers/CardColumn/CardColumn";
 import { DragDropContext, Droppable } from "react-beautiful-dnd";
 import Navbar from "./components/navbar/Navbar";
 import data from "./data";
+import uuidv4 from "uuid/v4";
 
 function App() {
   const [columns, setColumns] = useState(data);
@@ -166,6 +167,14 @@ function App() {
     }
   };
 
+  const addList = () => {
+    console.log("hi");
+    const columnid = uuidv4();
+    const column = {
+      id: `column${columnid}`,
+      title: ""
+    };
+  };
   return (
     <div className="task-board">
       <Navbar />
@@ -206,7 +215,7 @@ function App() {
             )}
           </Droppable>
         </DragDropContext>
-        <div className="sub-board add-board">
+        <div className="sub-board add-board" onClick={addList}>
           <div className="add-list">
             <span className="plus-icon">+</span>
             <span>Add Another list</span>
