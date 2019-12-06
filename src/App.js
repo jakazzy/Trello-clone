@@ -149,7 +149,6 @@ function App() {
         taskIds: startTaskIds
       };
       const finishTaskIds = Array.from(finish.taskIds);
-      // const finishIndex = startTaskIds.indexOf(card.id);
       finishTaskIds.splice(val.pos, 0, card.id);
       const newFinish = {
         ...finish,
