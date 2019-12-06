@@ -26,14 +26,26 @@ body {
 } */
 
 body {
-    background-color: #3979bf;
-    margin: 0;
-    box-sizing: border-box;
+  background-color: #3979bf;
+  margin: 0;
+  box-sizing: border-box;
+}
+.board {
+  display: flex;
+  width: 100%;
+  justify-content: center;
 }
 
+.add-board {
+  width: 272px;
+  height: 42px;
+  background: #4180d4;
+  color: #fff;
+  border-radius: 5px;
+}
 .sub-board {
-    margin-top: 2rem;
-    display: flex;
-    flex-direction: row;
-    justify-content: center;
+  margin-top: 2rem;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
 }

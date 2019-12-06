@@ -169,42 +169,45 @@ function App() {
   return (
     <div className="task-board">
       <Navbar />
-      <DragDropContext onDragEnd={onDragEnd}>
-        <Droppable
-          droppableId="all-columns"
-          direction="horizontal"
-          type="column"
-        >
-          {provided => (
-            <div
-              className="sub-board"
-              {...provided.droppableProps}
-              ref={provided.innerRef}
-            >
-              {columns.columnOrder.map((columnValue, index) => {
-                const column = columns.columnsData[columnValue];
-                const tasks = column.taskIds.map(
-                  taskId => columns.tasks[taskId]
-                );
-                return (
-                  <CardColumn
-                    column={column}
-                    key={column.id}
-                    tasks={tasks}
-                    index={index}
-                    createCard={createCard}
-                    removeCard={removeCard}
-                    editCard={editCard}
-                    data={columns}
-                    moveCard={moveCard}
-                  />
-                );
-              })}
-              {provided.placeholder}
-            </div>
-          )}
-        </Droppable>
-      </DragDropContext>
+      <div className="board">
+        <DragDropContext onDragEnd={onDragEnd}>
+          <Droppable
+            droppableId="all-columns"
+            direction="horizontal"
+            type="column"
+          >
+            {provided => (
+              <div
+                className="sub-board"
+                {...provided.droppableProps}
+                ref={provided.innerRef}
+              >
+                {columns.columnOrder.map((columnValue, index) => {
+                  const column = columns.columnsData[columnValue];
+                  const tasks = column.taskIds.map(
+                    taskId => columns.tasks[taskId]
+                  );
+                  return (
+                    <CardColumn
+                      column={column}
+                      key={column.id}
+                      tasks={tasks}
+                      index={index}
+                      createCard={createCard}
+                      removeCard={removeCard}
+                      editCard={editCard}
+                      data={columns}
+                      moveCard={moveCard}
+                    />
+                  );
+                })}
+                {provided.placeholder}
+              </div>
+            )}
+          </Droppable>
+        </DragDropContext>
+        <div className="sub-board add-board">How are you doing</div>
+      </div>
     </div>
   );
 }
