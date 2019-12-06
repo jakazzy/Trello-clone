@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import { Draggable } from "react-beautiful-dnd";
 import GetCard from "../../displayCard/displayCard";
 
-function Card({ task, index, removeCard, column, editCard, data }) {
+function Card({ task, index, removeCard, column, editCard, data, moveCard }) {
   const [values, setValues] = useState({
     content: ""
   });
@@ -81,6 +81,7 @@ function Card({ task, index, removeCard, column, editCard, data }) {
       data={data}
       openCard={openCard}
       cardClicked={cardClicked}
+      moveCard={moveCard}
     />
   );
 

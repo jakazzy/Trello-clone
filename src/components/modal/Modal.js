@@ -14,7 +14,8 @@ const Modal = ({
   data,
   column,
   openCard,
-  cardClicked
+  cardClicked,
+  moveCard
 }) => {
   const { columnsData, columnOrder } = data;
   console.log(
@@ -24,15 +25,14 @@ const Modal = ({
     openCard
   );
   const [val, setVal] = useState({
+    col1: column.title,
+    pos1: openCard ? column.taskIds.indexOf(openCard) + 1 : 0,
     col: column.title,
     pos: openCard ? column.taskIds.indexOf(openCard) + 1 : 0
   });
 
   useEffect(() => {
     setVal({ ...val, pos: column.taskIds.indexOf(openCard) + 1 });
-    // return () => {
-    //   cleanup;
-    // };
   }, [openCard]);
 
   const handleVal = (event, field, option) => {
@@ -61,6 +61,16 @@ const Modal = ({
       </option>
     );
   });
+
+  const handleCardMove = (
+    card,
+    column,
+    previousposition,
+    previousColumn,
+    val
+  ) => {
+    moveCard(card, column, previousposition, previousColumn, val);
+  };
   return (
     <div className="modal" style={{ display: isOpen ? "block" : "none" }}>
       <span onClick={handleClose} className="close">
@@ -133,7 +143,12 @@ const Modal = ({
           </div>
         </div>
 
-        <button type="submit">Move</button>
+        <button
+          onClick={() => handleCardMove(task, column, val.pos1, val.col1, val)}
+          type="submit"
+        >
+          Move
+        </button>
       </div>
     </div>
   );

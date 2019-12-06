@@ -11,7 +11,8 @@ function CardColumn({
   createCard,
   removeCard,
   editCard,
-  data
+  data,
+  moveCard
 }) {
   const handleclick = id => {
     const cardid = uuidv4();
@@ -54,6 +55,7 @@ function CardColumn({
                       column={column}
                       editCard={editCard}
                       data={data}
+                      moveCard={moveCard}
                     />
                   ))}
                   {provided.placeholder}

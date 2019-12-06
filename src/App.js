@@ -8,14 +8,6 @@ import data from "./data";
 function App() {
   const [columns, setColumns] = useState(data);
 
-  const moveCard = () => {
-    // get the cards columns and position.
-    // display the cards columns and position on the move modal
-    // drop doan for columns should display all the columns
-    // drop down for the position should siplay possible positions
-    // choose column and add the card to its list of cards
-  };
-
   const editCard = card => {
     delete card.button;
     delete card.focus;
@@ -119,6 +111,62 @@ function App() {
     setColumns(newState);
   };
 
+  const moveCard = (card, column, previousposition, previousColumn, val) => {
+    val.pos = parseInt(val.pos - 1);
+    if (previousposition === val.pos && previousColumn === val.col) return;
+    let finishid = columns.columnOrder.filter(
+      column => columns.columnsData[column].title === val.col
+    );
+    finishid = finishid.toString();
+    const start = columns.columnsData[column.id];
+    const finish = columns.columnsData[finishid];
+
+    if (previousColumn === val.col && previousposition !== val.pos) {
+      const newTaskIds = Array.from(start.taskIds);
+      const index = newTaskIds.indexOf(card.id);
+      newTaskIds.splice(index, 1);
+      newTaskIds.splice(val.pos, 0, card.id);
+      const newColumn = {
+        ...start,
+        taskIds: newTaskIds
+      };
+      const newData = {
+        ...columns,
+        columnsData: {
+          ...columns.columnsData,
+          [newColumn.id]: newColumn
+        }
+      };
+      setColumns(newData);
+      return;
+    }
+    if (previousColumn !== val.col && previousposition !== val.pos) {
+      const startTaskIds = Array.from(start.taskIds);
+      const index = startTaskIds.indexOf(card.id);
+      startTaskIds.splice(index, 1);
+      const newStart = {
+        ...start,
+        taskIds: startTaskIds
+      };
+      const finishTaskIds = Array.from(finish.taskIds);
+      // const finishIndex = startTaskIds.indexOf(card.id);
+      finishTaskIds.splice(val.pos, 0, card.id);
+      const newFinish = {
+        ...finish,
+        taskIds: finishTaskIds
+      };
+      const newState = {
+        ...columns,
+        columnsData: {
+          ...columns.columnsData,
+          [newStart.id]: newStart,
+          [newFinish.id]: newFinish
+        }
+      };
+      setColumns(newState);
+    }
+  };
+
   return (
     <div className="task-board">
       <Navbar />
@@ -149,6 +197,7 @@ function App() {
                     removeCard={removeCard}
                     editCard={editCard}
                     data={columns}
+                    moveCard={moveCard}
                   />
                 );
               })}

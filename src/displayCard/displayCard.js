@@ -17,7 +17,8 @@ function GetCard({
   data,
   column,
   openCard,
-  cardClicked
+  cardClicked,
+  moveCard
 }) {
   if (task.content) {
     return (
@@ -38,6 +39,7 @@ function GetCard({
           column={column}
           openCard={openCard}
           cardClicked={cardClicked}
+          moveCard={moveCard}
         />
 
         <li className="card">
