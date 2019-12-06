@@ -39,9 +39,24 @@ body {
 .add-board {
   width: 272px;
   height: 42px;
-  background: #4180d4;
+  background: rgba(255, 255, 255, 0.24);
   color: #fff;
-  border-radius: 5px;
+  border-radius: 2px;
+  margin: 0.25rem;
+  padding: 4px;
+}
+
+.add-list {
+  padding: 6px 8px;
+  cursor: pointer;
+}
+
+.plus-icon {
+  width: 20px;
+  height: 20px;
+  margin: 0 2px 0 0;
+  display: inline-block;
+  font-size: 19px;
 }
 .sub-board {
   margin-top: 2rem;

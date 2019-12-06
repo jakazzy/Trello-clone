@@ -206,7 +206,12 @@ function App() {
             )}
           </Droppable>
         </DragDropContext>
-        <div className="sub-board add-board">How are you doing</div>
+        <div className="sub-board add-board">
+          <div className="add-list">
+            <span className="plus-icon">+</span>
+            <span>Add Another list</span>
+          </div>
+        </div>
       </div>
     </div>
   );
