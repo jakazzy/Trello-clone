@@ -222,12 +222,6 @@ function App() {
           </div>
           <div className="textArea-add-list">
             <form>
-              {/* <textarea
-                name=""
-                id="add-list-textarea"
-                cols="27"
-                rows="2"
-              ></textarea> */}
               <input
                 id="add-list-textarea"
                 class="list-name-input"
