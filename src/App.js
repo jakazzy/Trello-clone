@@ -215,10 +215,31 @@ function App() {
             )}
           </Droppable>
         </DragDropContext>
-        <div className="sub-board add-board" onClick={addList}>
-          <div className="add-list">
+        <div onClick={addList} className="add-another-list">
+          <div className="add-list add-board">
             <span className="plus-icon">+</span>
             <span>Add Another list</span>
+          </div>
+          <div className="textArea-add-list">
+            <form>
+              {/* <textarea
+                name=""
+                id="add-list-textarea"
+                cols="27"
+                rows="2"
+              ></textarea> */}
+              <input
+                id="add-list-textarea"
+                class="list-name-input"
+                type="text"
+                name="name"
+                placeholder="Enter list title..."
+                autocomplete="off"
+                dir="auto"
+                maxlength="512"
+              ></input>
+              <button type="button"> Add list</button>
+            </form>
           </div>
         </div>
       </div>
