@@ -9,6 +9,7 @@ import uuidv4 from "uuid/v4";
 function App() {
   const [columns, setColumns] = useState(data);
   const [addColumn, setAddColumn] = useState(false);
+  const [columnName, setColumnName] = useState("");
 
   const editCard = card => {
     delete card.button;
@@ -170,12 +171,18 @@ function App() {
 
   const addList = () => {
     console.log("hi");
+
+    setAddColumn(!addColumn);
+  };
+
+  const addColumnName = () => {};
+  const addColumnDetails = event => {
     // const columnid = uuidv4();
     // const column = {
     //   id: `column${columnid}`,
     //   title: ""
     // };
-    setAddColumn(!addColumn);
+    console.log(event);
   };
   return (
     <div className="task-board">
@@ -230,7 +237,7 @@ function App() {
             className="textArea-add-list"
             style={{ display: addColumn ? "inline-block" : "none" }}
           >
-            <form>
+            <form onSubmit={event => addColumnDetails(event)}>
               <input
                 id="add-list-textarea"
                 class="list-name-input"
@@ -239,7 +246,9 @@ function App() {
                 placeholder="Enter list title..."
                 autocomplete="off"
                 dir="auto"
+                value={columnName}
                 maxlength="512"
+                onChange={addColumnName}
               ></input>
               <button type="button"> Add list</button>
             </form>
