@@ -51,6 +51,9 @@ body {
   cursor: pointer;
 }
 
+.add-list:hover {
+  background-color: #3979bf;
+}
 .plus-icon {
   width: 20px;
   height: 20px;

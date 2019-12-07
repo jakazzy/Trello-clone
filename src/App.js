@@ -8,6 +8,7 @@ import uuidv4 from "uuid/v4";
 
 function App() {
   const [columns, setColumns] = useState(data);
+  const [addColumn, setAddColumn] = useState(false);
 
   const editCard = card => {
     delete card.button;
@@ -169,11 +170,12 @@ function App() {
 
   const addList = () => {
     console.log("hi");
-    const columnid = uuidv4();
-    const column = {
-      id: `column${columnid}`,
-      title: ""
-    };
+    // const columnid = uuidv4();
+    // const column = {
+    //   id: `column${columnid}`,
+    //   title: ""
+    // };
+    setAddColumn(!addColumn);
   };
   return (
     <div className="task-board">
@@ -216,11 +218,17 @@ function App() {
           </Droppable>
         </DragDropContext>
         <div onClick={addList} className="add-another-list">
-          <div className="add-list add-board">
+          <div
+            className="add-list add-board"
+            style={{ display: !addColumn ? "inline-block" : "none" }}
+          >
             <span className="plus-icon">+</span>
             <span>Add Another list</span>
           </div>
-          <div className="textArea-add-list">
+          <div
+            className="textArea-add-list"
+            style={{ display: addColumn ? "inline-block" : "none" }}
+          >
             <form>
               <input
                 id="add-list-textarea"
