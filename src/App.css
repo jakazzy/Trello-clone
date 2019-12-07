@@ -81,7 +81,7 @@ body {
   border-radius: 2px;
 }
 
-.textArea-add-list button[type="button"] {
+.textArea-add-list button[type="submit"] {
   display: inline-block;
   font-weight: 400;
   line-height: 20px;

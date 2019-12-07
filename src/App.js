@@ -9,7 +9,7 @@ import uuidv4 from "uuid/v4";
 function App() {
   const [columns, setColumns] = useState(data);
   const [addColumn, setAddColumn] = useState(false);
-  const [columnName, setColumnName] = useState("");
+  const [columnName, setColumnName] = useState({ column: "" });
 
   const editCard = card => {
     delete card.button;
@@ -175,14 +175,37 @@ function App() {
     setAddColumn(!addColumn);
   };
 
-  const addColumnName = () => {};
+  const addColumnName = event => {
+    setColumnName({ ...columnName, column: event.target.value });
+  };
   const addColumnDetails = event => {
-    // const columnid = uuidv4();
-    // const column = {
-    //   id: `column${columnid}`,
-    //   title: ""
+    event.preventDefault();
+    const columnid = uuidv4();
+    const column = {
+      id: `column${columnid}`,
+      title: columnName.column
+    };
+    setColumnName({ column: "" });
+    // const columnAll = columns.columnsData;
+    // const columnList = columns.columnOrder;
+
+    // const newColumns = {
+    //   ...columnAll,
+    //   :
     // };
-    console.log(event);
+    // columnList.push(columnid);
+
+    // const newData = {
+    //   ...columns,
+    //   columnsData: {
+    //     ...columns.columnsData,
+    //     [columnid]: column
+    //   },
+    //   columnOrder: columnList
+    // };
+    setAddColumn(!addColumn);
+
+    // console.log(newData, "i see you");
   };
   return (
     <div className="task-board">
@@ -240,17 +263,17 @@ function App() {
             <form onSubmit={event => addColumnDetails(event)}>
               <input
                 id="add-list-textarea"
-                class="list-name-input"
+                className="list-name-input"
                 type="text"
                 name="name"
                 placeholder="Enter list title..."
-                autocomplete="off"
+                autoComplete="off"
                 dir="auto"
-                value={columnName}
-                maxlength="512"
-                onChange={addColumnName}
+                value={columnName.column}
+                maxLength="512"
+                onChange={event => addColumnName(event)}
               ></input>
-              <button type="button"> Add list</button>
+              <button type="submit"> Add list</button>
             </form>
           </div>
         </div>
