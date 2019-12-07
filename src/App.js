@@ -217,9 +217,10 @@ function App() {
             )}
           </Droppable>
         </DragDropContext>
-        <div onClick={addList} className="add-another-list">
+        <div className="add-another-list">
           <div
             className="add-list add-board"
+            onClick={addList}
             style={{ display: !addColumn ? "inline-block" : "none" }}
           >
             <span className="plus-icon">+</span>
