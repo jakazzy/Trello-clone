@@ -206,6 +206,20 @@ function App() {
     console.log(newData, "i see you");
     setColumns(newData);
   };
+
+  const deleteColumn = columnid => {
+    const newColumns = columns.columnOrder.filter(
+      columnId => columnid !== columnId
+    );
+
+    const newData = {
+      ...columns,
+      columnOrder: [...newColumns]
+    };
+
+    setColumns(newData);
+  };
+
   return (
     <div className="task-board">
       <Navbar />
@@ -241,6 +255,7 @@ function App() {
                       editCard={editCard}
                       data={columns}
                       moveCard={moveCard}
+                      deletecolumn={deleteColumn}
                     />
                   );
                 })}

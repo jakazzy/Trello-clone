@@ -12,7 +12,8 @@ function CardColumn({
   removeCard,
   editCard,
   data,
-  moveCard
+  moveCard,
+  deleteColumn
 }) {
   const handleclick = id => {
     const cardid = uuidv4();
@@ -36,7 +37,10 @@ function CardColumn({
         >
           <div className="list-header">
             <h2 className="list-header-text">{column.title}</h2>
-            <div className="list-header-icon">...</div>
+            <div className="dropDown">
+              <div className="list-header-icon">...</div>
+              <div className="dropDown-content">delete column</div>
+            </div>
           </div>
           <Droppable droppableId={column.id} type="task">
             {provided => (
