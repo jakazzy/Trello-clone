@@ -188,14 +188,9 @@ function App() {
       taskIds: []
     };
     setColumnName({ column: "" });
-    // const columnAll = columns.columnsData;
+
     const columnList = columns.columnOrder;
 
-    // const newColumns = {
-    //   ...columnAll,
-    //   :
-    // };
-    // columnList.push(columnid);
     console.log(columnList, "columnList");
 
     const newData = {
