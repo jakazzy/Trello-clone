@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import Card from "../../components/card/Card";
 import "./CardColumn.css";
 import { Draggable, Droppable } from "react-beautiful-dnd";
@@ -15,6 +15,8 @@ function CardColumn({
   moveCard,
   deleteColumn
 }) {
+  const [removeColumn, setRemoveColumn] = useState(false);
+
   const handleclick = id => {
     const cardid = uuidv4();
     const card = {
@@ -25,6 +27,8 @@ function CardColumn({
     };
     createCard(`card${cardid}`, card, id);
   };
+
+  const showDelete = () => {};
 
   return (
     <Draggable draggableId={column.id} index={index}>
@@ -38,7 +42,9 @@ function CardColumn({
           <div className="list-header">
             <h2 className="list-header-text">{column.title}</h2>
             <div className="dropDown">
-              <div className="list-header-icon">...</div>
+              <div className="list-header-icon" onclick={showDelete}>
+                ...
+              </div>
               <div className="dropDown-content">delete column</div>
             </div>
           </div>
