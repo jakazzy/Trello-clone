@@ -178,34 +178,38 @@ function App() {
   const addColumnName = event => {
     setColumnName({ ...columnName, column: event.target.value });
   };
+
   const addColumnDetails = event => {
     event.preventDefault();
     const columnid = uuidv4();
     const column = {
       id: `column${columnid}`,
-      title: columnName.column
+      title: columnName.column,
+      taskIds: []
     };
     setColumnName({ column: "" });
     // const columnAll = columns.columnsData;
-    // const columnList = columns.columnOrder;
+    const columnList = columns.columnOrder;
 
     // const newColumns = {
     //   ...columnAll,
     //   :
     // };
     // columnList.push(columnid);
+    console.log(columnList, "columnList");
 
-    // const newData = {
-    //   ...columns,
-    //   columnsData: {
-    //     ...columns.columnsData,
-    //     [columnid]: column
-    //   },
-    //   columnOrder: columnList
-    // };
+    const newData = {
+      ...columns,
+      columnsData: {
+        ...columns.columnsData,
+        [column.id]: column
+      },
+      columnOrder: [...columnList, column.id]
+    };
     setAddColumn(!addColumn);
 
-    // console.log(newData, "i see you");
+    console.log(newData, "i see you");
+    setColumns(newData);
   };
   return (
     <div className="task-board">
@@ -225,6 +229,9 @@ function App() {
               >
                 {columns.columnOrder.map((columnValue, index) => {
                   const column = columns.columnsData[columnValue];
+                  {
+                    console.log(column, "column");
+                  }
                   const tasks = column.taskIds.map(
                     taskId => columns.tasks[taskId]
                   );
