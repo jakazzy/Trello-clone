@@ -296,10 +296,14 @@ option {
 .dropDown {
   position: relative;
   display: inline-block;
+  width: 50px;
+  max-height: 30px;
+  padding: 10px 12px;
+  text-align: center;
 }
 
 .dropDown-content {
-  display: none;
+  /* display: none; */
   position: absolute;
   background-color: #f1f1f1;
   width: 140px;
@@ -313,3 +317,13 @@ option {
 .dropdown-content:hover {
   background-color: #ddd;
 }
+
+.list-header-icon {
+  width: 30px;
+  line-height: 1.5;
+}
+
+.list-header-icon:hover {
+  background-color: #cbd5e0;
+}
+/* #cbd5e0 */

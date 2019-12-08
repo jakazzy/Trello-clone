@@ -15,7 +15,7 @@ function CardColumn({
   moveCard,
   deleteColumn
 }) {
-  const [removeColumn, setRemoveColumn] = useState(false);
+  const [displayColumn, setDisplayColumn] = useState(false);
 
   const handleclick = id => {
     const cardid = uuidv4();
@@ -28,7 +28,10 @@ function CardColumn({
     createCard(`card${cardid}`, card, id);
   };
 
-  const showDelete = () => {};
+  const showDelete = () => {
+    setDisplayColumn(!displayColumn);
+    console.log("hi");
+  };
 
   return (
     <Draggable draggableId={column.id} index={index}>
@@ -41,11 +44,14 @@ function CardColumn({
         >
           <div className="list-header">
             <h2 className="list-header-text">{column.title}</h2>
-            <div className="dropDown">
-              <div className="list-header-icon" onclick={showDelete}>
-                ...
+            <div className="dropDown" onClick={showDelete}>
+              <div className="list-header-icon">...</div>
+              <div
+                style={{ display: displayColumn ? "block" : "none" }}
+                className="dropDown-content"
+              >
+                delete column
               </div>
-              <div className="dropDown-content">delete column</div>
             </div>
           </div>
           <Droppable droppableId={column.id} type="task">
