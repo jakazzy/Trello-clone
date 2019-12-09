@@ -49,6 +49,7 @@ function CardColumn({
               <div
                 style={{ display: displayColumn ? "block" : "none" }}
                 className="dropDown-content"
+                onClick={() => deleteColumn(column.id)}
               >
                 delete column
               </div>
