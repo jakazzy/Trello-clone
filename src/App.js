@@ -32,7 +32,6 @@ function App() {
   const removeCard = (card, columnId) => {
     const { id } = card;
     const data = columns;
-    console.log(columnId, "this is columnid");
     data.columnsData[columnId].taskIds = data.columnsData[
       columnId
     ].taskIds.filter(cardId => id !== cardId);
@@ -170,8 +169,6 @@ function App() {
   };
 
   const addList = () => {
-    console.log("hi");
-
     setAddColumn(!addColumn);
   };
 
@@ -191,8 +188,6 @@ function App() {
 
     const columnList = columns.columnOrder;
 
-    console.log(columnList, "columnList");
-
     const newData = {
       ...columns,
       columnsData: {
@@ -203,7 +198,6 @@ function App() {
     };
     setAddColumn(!addColumn);
 
-    console.log(newData, "i see you");
     setColumns(newData);
   };
 
@@ -248,9 +242,6 @@ function App() {
               >
                 {columns.columnOrder.map((columnValue, index) => {
                   const column = columns.columnsData[columnValue];
-                  {
-                    console.log(column, "column");
-                  }
                   const tasks = column.taskIds.map(
                     taskId => columns.tasks[taskId]
                   );

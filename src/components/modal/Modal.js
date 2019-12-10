@@ -18,12 +18,7 @@ const Modal = ({
   moveCard
 }) => {
   const { columnsData, columnOrder } = data;
-  console.log(
-    column.taskIds.lastIndexOf(task.id) + 1,
-    "hello",
-    "openCard :",
-    openCard
-  );
+
   const [val, setVal] = useState({
     col1: column.title,
     pos1: openCard ? column.taskIds.indexOf(openCard) + 1 : 0,
@@ -36,11 +31,9 @@ const Modal = ({
   }, [openCard]);
 
   const handleVal = (event, field, option) => {
-    console.log(event, field[option], "iam event", event.target.value);
     let value = field;
     value[option] = event.target.value;
     setVal({ ...val, ...value });
-    console.log(val);
   };
   const displayColumn = data.columnOrder.map(columnItem => {
     // const selected = columnsData[column].title === column.title;

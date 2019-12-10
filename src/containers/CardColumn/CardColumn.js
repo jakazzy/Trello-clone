@@ -37,7 +37,6 @@ function CardColumn({
 
   const showDelete = () => {
     setDisplayColumn(!displayColumn);
-    console.log("hi");
   };
 
   const handleDeleteColumns = column => {

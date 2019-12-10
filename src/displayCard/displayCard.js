@@ -81,10 +81,6 @@ function GetCard({
             event.preventDefault();
             handleSubmit(event);
           }}
-          // onMouseDown={event => {
-          //   event.preventDefault();
-          //   console.log(event.target.id);
-          // }}
         >
           {task.button}
         </button>
