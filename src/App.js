@@ -220,6 +220,16 @@ function App() {
     setColumns(newData);
   };
 
+  const editColumnTitle = column => {
+    const newData = {
+      ...columns,
+      columnsData: {
+        ...columns.columnsData,
+        [column.id]: column
+      }
+    };
+    setColumns(newData);
+  };
   return (
     <div className="task-board">
       <Navbar />
@@ -256,6 +266,7 @@ function App() {
                       data={columns}
                       moveCard={moveCard}
                       deleteColumn={deleteColumn}
+                      editColumnTitle={editColumnTitle}
                     />
                   );
                 })}

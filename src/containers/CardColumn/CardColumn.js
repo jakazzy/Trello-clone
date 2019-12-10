@@ -13,7 +13,8 @@ function CardColumn({
   editCard,
   data,
   moveCard,
-  deleteColumn
+  deleteColumn,
+  editColumnTitle
 }) {
   const [displayColumn, setDisplayColumn] = useState(false);
 
@@ -36,6 +37,8 @@ function CardColumn({
   const handleDeleteColumns = column => {
     deleteColumn(column.id);
   };
+
+  const handleEditcolumnTitle = () => {};
   return (
     <Draggable draggableId={column.id} index={index}>
       {provided => (
