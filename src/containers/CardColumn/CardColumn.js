@@ -24,6 +24,7 @@ function CardColumn({
   });
 
   const [showInputTitle, setShowInputTitle] = useState(false);
+
   const handleclick = id => {
     const cardid = uuidv4();
     const card = {
@@ -55,6 +56,7 @@ function CardColumn({
   const toggleShowTitle = () => {
     setShowInputTitle(!showInputTitle);
   };
+
   return (
     <Draggable draggableId={column.id} index={index}>
       {provided => (
