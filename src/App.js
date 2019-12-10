@@ -208,7 +208,6 @@ function App() {
   };
 
   const deleteColumn = columnid => {
-    console.log("who are you");
     const newColumns = columns.columnOrder.filter(
       columnId => columnid !== columnId
     );
@@ -256,7 +255,7 @@ function App() {
                       editCard={editCard}
                       data={columns}
                       moveCard={moveCard}
-                      deletecolumn={deleteColumn}
+                      deleteColumn={deleteColumn}
                     />
                   );
                 })}

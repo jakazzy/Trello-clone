@@ -33,6 +33,9 @@ function CardColumn({
     console.log("hi");
   };
 
+  const handleDeleteColumns = column => {
+    deleteColumn(column.id);
+  };
   return (
     <Draggable draggableId={column.id} index={index}>
       {provided => (
@@ -49,7 +52,7 @@ function CardColumn({
               <div
                 style={{ display: displayColumn ? "block" : "none" }}
                 className="dropDown-content"
-                onClick={() => deleteColumn(column.id)}
+                onClick={() => handleDeleteColumns(column)}
               >
                 delete column
               </div>
