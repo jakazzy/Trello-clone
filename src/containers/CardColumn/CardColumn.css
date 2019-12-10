@@ -13,6 +13,7 @@
   height: 3.6875rem;
   line-height: 3.6875rem;
   display: flex;
+  position: relative;
 }
 
 .list-header-text {
@@ -320,9 +321,20 @@ option {
 
 .list-header-icon {
   width: 30px;
-  line-height: 1.5;
+  line-height: 2.2;
 }
 
 .list-header-icon:hover {
   background-color: #cbd5e0;
+}
+
+#edit-column-title {
+  position: absolute;
+  top: 10px;
+  left: 10px;
+  display: inline-block;
+  width: 13rem;
+  margin-left: 6px;
+  box-sizing: border-box;
+  border-radius: 3px;
 }

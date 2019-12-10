@@ -23,6 +23,7 @@ function CardColumn({
     taskIds: column.taskIds
   });
 
+  const [showInputTitle, setShowInputTitle] = useState(false);
   const handleclick = id => {
     const cardid = uuidv4();
     const card = {
@@ -46,9 +47,14 @@ function CardColumn({
   const handleEditcolumnTitle = event => {
     event.preventDefault();
     editColumnTitle(editTitle);
+    setShowInputTitle(!showInputTitle);
   };
   const handleEditColumnTitleChange = event => {
     setEditTitle({ ...editTitle, title: event.target.value });
+  };
+
+  const toggleShowTitle = () => {
+    setShowInputTitle(!showInputTitle);
   };
   return (
     <Draggable draggableId={column.id} index={index}>
@@ -60,9 +66,19 @@ function CardColumn({
           ref={provided.innerRef}
         >
           <div className="list-header">
-            <h2 className="list-header-text">{column.title}</h2>
-            <form onSubmit={event => handleEditcolumnTitle(event)}>
+            <h2
+              style={{ display: !showInputTitle ? "inline-block" : "none" }}
+              className="list-header-text"
+              onClick={toggleShowTitle}
+            >
+              {column.title}
+            </h2>
+            <form
+              style={{ display: showInputTitle ? "inline-block" : "none" }}
+              onSubmit={event => handleEditcolumnTitle(event)}
+            >
               <input
+                id="edit-column-title"
                 type="text"
                 value={editTitle.title}
                 onChange={event => handleEditColumnTitleChange(event)}
