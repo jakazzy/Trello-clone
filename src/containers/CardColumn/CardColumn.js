@@ -17,6 +17,11 @@ function CardColumn({
   editColumnTitle
 }) {
   const [displayColumn, setDisplayColumn] = useState(false);
+  const [editTitle, setEditTitle] = useState({
+    title: column.title,
+    id: column.id,
+    taskIds: column.taskIds
+  });
 
   const handleclick = id => {
     const cardid = uuidv4();
@@ -38,7 +43,13 @@ function CardColumn({
     deleteColumn(column.id);
   };
 
-  const handleEditcolumnTitle = () => {};
+  const handleEditcolumnTitle = event => {
+    event.preventDefault();
+    editColumnTitle(editTitle);
+  };
+  const handleEditColumnTitleChange = event => {
+    setEditTitle({ ...editTitle, title: event.target.value });
+  };
   return (
     <Draggable draggableId={column.id} index={index}>
       {provided => (
@@ -50,6 +61,13 @@ function CardColumn({
         >
           <div className="list-header">
             <h2 className="list-header-text">{column.title}</h2>
+            <form onSubmit={event => handleEditcolumnTitle(event)}>
+              <input
+                type="text"
+                value={editTitle.title}
+                onChange={event => handleEditColumnTitleChange(event)}
+              />
+            </form>
             <div className="dropDown" onClick={showDelete}>
               <div className="list-header-icon">...</div>
               <div
