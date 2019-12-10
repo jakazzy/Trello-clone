@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import Card from "../../components/card/Card";
 import "./CardColumn.css";
 import { Draggable, Droppable } from "react-beautiful-dnd";
@@ -12,8 +12,18 @@ function CardColumn({
   removeCard,
   editCard,
   data,
-  moveCard
+  moveCard,
+  deleteColumn,
+  editColumnTitle
 }) {
+  const [displayColumn, setDisplayColumn] = useState(false);
+  const [editTitle, setEditTitle] = useState({
+    title: column.title,
+    id: column.id,
+    taskIds: column.taskIds
+  });
+
+  const [showInputTitle, setShowInputTitle] = useState(false);
   const handleclick = id => {
     const cardid = uuidv4();
     const card = {
@@ -25,6 +35,27 @@ function CardColumn({
     createCard(`card${cardid}`, card, id);
   };
 
+  const showDelete = () => {
+    setDisplayColumn(!displayColumn);
+    console.log("hi");
+  };
+
+  const handleDeleteColumns = column => {
+    deleteColumn(column.id);
+  };
+
+  const handleEditcolumnTitle = event => {
+    event.preventDefault();
+    editColumnTitle(editTitle);
+    setShowInputTitle(!showInputTitle);
+  };
+  const handleEditColumnTitleChange = event => {
+    setEditTitle({ ...editTitle, title: event.target.value });
+  };
+
+  const toggleShowTitle = () => {
+    setShowInputTitle(!showInputTitle);
+  };
   return (
     <Draggable draggableId={column.id} index={index}>
       {provided => (
@@ -35,8 +66,34 @@ function CardColumn({
           ref={provided.innerRef}
         >
           <div className="list-header">
-            <h2 className="list-header-text">{column.title}</h2>
-            <div className="list-header-icon">...</div>
+            <h2
+              style={{ display: !showInputTitle ? "inline-block" : "none" }}
+              className="list-header-text"
+              onClick={toggleShowTitle}
+            >
+              {column.title}
+            </h2>
+            <form
+              style={{ display: showInputTitle ? "inline-block" : "none" }}
+              onSubmit={event => handleEditcolumnTitle(event)}
+            >
+              <input
+                id="edit-column-title"
+                type="text"
+                value={editTitle.title}
+                onChange={event => handleEditColumnTitleChange(event)}
+              />
+            </form>
+            <div className="dropDown" onClick={showDelete}>
+              <div className="list-header-icon">...</div>
+              <div
+                style={{ display: displayColumn ? "block" : "none" }}
+                className="dropDown-content"
+                onClick={() => handleDeleteColumns(column)}
+              >
+                delete column
+              </div>
+            </div>
           </div>
           <Droppable droppableId={column.id} type="task">
             {provided => (
