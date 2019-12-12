@@ -1,5 +1,5 @@
-import React from "react";
-import Modal from "../components/modal/Modal";
+import React from 'react'
+import Modal from '../components/modal/Modal'
 
 function GetCard({
   task,
@@ -49,7 +49,7 @@ function GetCard({
           <span className="card-info">{task.content}</span>
         </li>
       </div>
-    );
+    )
   } else if (!task.content && task.focus) {
     return (
       <form
@@ -57,8 +57,7 @@ function GetCard({
         id="content-form"
         name="content-form"
         onBlur={event => handleBlur(event, task)}
-        onKeyDown={event => handleSubmit(event)}
-      >
+        onKeyDown={event => handleSubmit(event)}>
         <li className="card">
           <span className="card-info">
             <textarea
@@ -70,25 +69,23 @@ function GetCard({
               value={values.content}
               onChange={event => handleChange(event, task)}
               name="content-text"
-              form="content-form"
-            ></textarea>
+              form="content-form"></textarea>
           </span>
         </li>
         <button
           type="button"
           id="add-card-button"
           onMouseDown={event => {
-            event.preventDefault();
-            handleSubmit(event);
-          }}
-        >
+            event.preventDefault()
+            handleSubmit(event)
+          }}>
           {task.button}
         </button>
       </form>
-    );
+    )
   } else if (!task.content && !task.focus) {
-    return null;
+    return null
   }
 }
 
-export default GetCard;
+export default GetCard
